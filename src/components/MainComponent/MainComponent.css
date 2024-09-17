@@ -1,0 +1,17 @@
+.main-component{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+
+.login, .signup{
+    background-color: rgb(67, 200, 248);
+    cursor: pointer;
+    width: 5vw;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
