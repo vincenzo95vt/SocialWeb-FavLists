@@ -1,0 +1,73 @@
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    border-radius: 15px;
+    padding: 4rem;
+    background: #F4E1D2; /* Beige */
+    box-shadow: inset 0px 0px 20px rgba(105, 65, 52, 0.5); /* Color cálido con opacidad */
+    h1{
+        color: #4E342E;
+    }
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-between;
+    align-content: space-between;
+    width: 20rem;
+    height: auto; 
+}
+
+.container-info {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 1rem; 
+}
+
+.input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #8D8D8D; 
+    display: flex;
+    width: 100%; 
+    padding: 0.5rem 0; 
+    color: #4E342E; 
+}
+
+.container-error {
+    color: #E27D60; 
+    font-size: 0.8rem; 
+    margin-top: 0.5rem; 
+}
+
+.select {
+    padding: 0.5rem; 
+    border: 1px solid #8D8D8D; 
+    border-radius: 5px; 
+    width: 100%; 
+    background: #F4E1D2; 
+    color: #4E342E; /* Marrón Oscuro */
+}
+
+.select option {
+    background: #F4E1D2; /* Beige */
+    color: #4E342E; /* Marrón Oscuro */
+}
+
+.success-message {
+    color: #2ECC71; /* Verde Lima */
+    align-self: center;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.phrase{
+    color: #4E342E;
+}
+.login-btn {
+    color: #4E342E; 
+    cursor: pointer;
+    font-weight: bold;
+}

@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import { object, string, number } from 'yup'
-
+import "./SignUpComponent.css"
+import { signUpUser } from '../../core/services/services'
+import { useNavigate } from 'react-router-dom'
 
 const SignUpComponent = () => {
-  
+  const [submit, setSubmit] = useState(undefined)
+  const [validEmail, setValidEmail] = useState(undefined)
+
+  const navigate = useNavigate()
+
   let initialValues = {
     userName: undefined,
     email: undefined,
@@ -13,53 +19,96 @@ const SignUpComponent = () => {
     age: undefined,
     password: undefined,
     genre: undefined,
-    description: undefined
   }
   let userSchema = object({
-    userName: string().required(),
+    userName: string().required("Username is required"),
     email: string().email().required("Email is necessary to log on this website"),
     name: string().required("Tell us your name"),
     lastName: string().required("Tell us your last name"),
     age: number().required().min(18, "La edad minima debe ser 18 años"),
     password: string().required().min(9, "La contraseña debe ser de mas de 9 caracteres"),
     genre: string().required(),
-    description: string().max(200)
   })
-
   return (
-    <div>
+    <div className='signup-container'>
+      {
+        submit  ? 
+        (
+        <div className="success-message">
+          <span className="tick">✔️ {submit.message}</span>
+        </div>
+        ) 
+        :
+        (
+          validEmail && <div><span>{validEmail.message}</span></div>
+        )
+      }
       <h1>Register</h1>
       <Formik
       initialValues={initialValues}
       validationSchema={userSchema}
-      onSubmit={(values) => {
-        console.log(values)
+      validateOnChange={false}
+      validateOnBlur={false}
+      onSubmit={async (values, {resetForm}) => {        
+        const userData = await signUpUser(values)
+        if(userData.status === 400){
+          console.log("En status 400", userData)
+          setValidEmail(userData)
+        }else{
+          console.log(userData)
+          setSubmit(userData)
+          setTimeout(() =>{
+            setSubmit(undefined)
+            navigate("/")
+          }, 3000)
+          resetForm()
+          setValidEmail(false)
+        }
       }}>
         {
           ({errors}) => (
-            <Form>
-              <span>Username</span>
-              <Field type="userName" name="userName"/>
-              <span>Email</span>
-              <Field type="email" name="email"/>
-              <span>Name</span>
-              <Field type="name" name="name"/>
-              <span>Last Name</span>
-              <Field type="lastName" name="lastName"/>
-              <span>Age</span>
-              <Field type="age" name="age"/>
-              <span>Password</span>
-              <Field type="password" name="password"/>
-              <span>Genre</span>
-              <Field type="genre" name="genre"/>
-              <span>Description</span>
-              <Field type="description" name="description"/>
-              <button type='submit'>Create user</button>
+            <Form className='form-container'>
+              <div className='container-info'>
+                <Field placeholder="Username" className="input" type="userName" name="userName"/>
+                {errors.userName && <div className='container-error'><span>{errors.userName}</span></div>}
+              </div>
+              <div className='container-info'>
+                <Field placeholder="Email" className="input"  type="email" name="email"/>
+                {errors.email && <div className='container-error'><span>{errors.email}</span></div>}
+              </div>
+              <div className='container-info'>        
+                <Field placeholder="Name" className="input"  type="name" name="name"/>
+                {errors.name && <div className='container-error'><span>{errors.name}</span></div>}
+              </div>
+              <div className='container-info'> 
+                <Field placeholder="Last Name" className="input"  type="lastName" name="lastName"/>
+                {errors.lastName && <div className='container-error'><span>{errors.lastName}</span></div>}
+              </div>
+              <div className='container-info'> 
+                <Field placeholder="Age" className="input"  type="age" name="age"/>
+                {errors.age && <div className='container-error'><span>{errors.age}</span></div>}
+              </div>
+              <div className='container-info'>
+                <Field placeholder="Password" className="input"  type="password" name="password"/>
+                {errors.password && <div className='container-error'><span>{errors.password}</span></div>}
+              </div>
+              <div className='container-info'>
+                <Field as="select" placeholder="Genre" className="input select"  type="genre" name="genre">
+                  <option value="">Select Genre</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </Field>
+                {errors.genre && <div className='container-error'><span>{errors.genre}</span></div>}
+              </div>
+              <button type='submit'>Next Step</button>
             </Form>
           )
         }
-        
       </Formik>
+      <div>
+        <span className='phrase'>Do you have an account? </span>
+        <span onClick={() => navigate("/login")} className='login-btn'>Login</span>
+      </div>
     </div>
   )
 }

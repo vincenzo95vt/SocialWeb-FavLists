@@ -6,7 +6,7 @@
 }
 
 .login, .signup{
-    background-color: rgb(67, 200, 248);
+    background-color:#8d5b4f;
     cursor: pointer;
     width: 5vw;
     height: 4vh;
@@ -14,4 +14,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 6px;
+    transition: 0.2s ease-in-out;
+    &:hover{
+        background-color: #4E342E;
+    }
 }
