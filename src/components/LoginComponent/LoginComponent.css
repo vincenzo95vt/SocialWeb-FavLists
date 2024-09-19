@@ -1,0 +1,12 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    border-radius: 15px;
+    padding: 4rem;
+    background: #F4E1D2; /* Beige */
+    box-shadow: inset 0px 0px 20px rgba(105, 65, 52, 0.5); /* Color cálido con opacidad */
+    h1{
+        color: #4E342E;
+    }
+}

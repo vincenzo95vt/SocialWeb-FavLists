@@ -18,6 +18,7 @@
     align-content: space-between;
     width: 20rem;
     height: auto; 
+    gap: 10px;
 }
 
 .container-info {
@@ -34,6 +35,9 @@
     width: 100%; 
     padding: 0.5rem 0; 
     color: #4E342E; 
+    &:focus{
+        outline: none;
+    }
 }
 
 .container-error {
