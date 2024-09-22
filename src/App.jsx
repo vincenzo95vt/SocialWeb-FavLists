@@ -5,6 +5,7 @@ import LoginComponent from './components/LoginComponent/LoginComponent'
 import SignUpComponent from './components/SignUpComponent/SignUpComponent'
 import { Provider } from 'react-redux'
 import store from "./core/redux/store/store"
+import IndexComponent from './components/IndexComponent/IndexComponent'
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
               <Route path="/" element={<MainComponent/>} />
               <Route path="/login" element={<LoginComponent />} />
               <Route path="/signup" element={<SignUpComponent />} />
+              <Route path='/index' element={<IndexComponent />} />
+
             </Routes>
           </BrowserRouter>
       </Provider>

@@ -2,11 +2,29 @@
     display: flex;
     justify-content: space-between;
     width: 100vw;
-    position: relative;
+    height: 5rem;
     top: 0;
+    left: 0;
+    position: fixed;
+    background-color: white;
 }
 
 .header img{
     width: 5%;
     height: auto;
+}
+
+.header input{
+    height: 1rem;
+    align-self: center;
+}
+
+.header .container-opt{
+    display: flex;
+    width: 15rem;
+    justify-content: space-between;
+    align-items: center;
+    span{
+        color: brown;
+    }
 }

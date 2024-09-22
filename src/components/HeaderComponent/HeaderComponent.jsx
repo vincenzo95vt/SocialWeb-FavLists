@@ -7,7 +7,7 @@ const HeaderComponent = () => {
     <div className='header'>
       <img src="/Diseño sin título (1).png" alt="" />
       <input type="text" />
-      <div>
+      <div className='container-opt'>
         <span>Index</span>
         <span>Profile</span>
         <span>Friends</span>

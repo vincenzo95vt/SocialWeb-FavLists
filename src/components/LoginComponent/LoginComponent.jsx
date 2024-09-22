@@ -5,13 +5,14 @@ import { object, string } from 'yup'
 import { loginUser } from '../../core/services/services'
 import { useDispatch } from 'react-redux'
 import { successUserLog } from './LoginAction'
+import { useNavigate } from 'react-router-dom'
 
 const LoginComponent = () => {
   const [noLog, setNoLog] = useState(undefined)
   const [successLog, setSuccessLog] = useState(undefined)
 
   const dispatch = useDispatch()
-
+  const navigate = useNavigate()
   const initialValues = {
     email: undefined,
     password: undefined
@@ -49,8 +50,10 @@ const LoginComponent = () => {
           setNoLog(undefined)
           setSuccessLog(data.message)
           dispatch(successUserLog(data.data))
+          setTimeout(() => {
+            navigate("/index")  
+          }, 3000);
         }
-
           }}>
         {
           ({errors}) => (
