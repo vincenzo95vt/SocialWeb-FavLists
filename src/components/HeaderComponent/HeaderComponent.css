@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    position: relative;
+    top: 0;
+}
+
+.header img{
+    width: 5%;
+    height: auto;
+}

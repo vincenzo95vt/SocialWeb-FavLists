@@ -3,18 +3,22 @@ import './App.css'
 import MainComponent from './components/MainComponent/MainComponent'
 import LoginComponent from './components/LoginComponent/LoginComponent'
 import SignUpComponent from './components/SignUpComponent/SignUpComponent'
+import { Provider } from 'react-redux'
+import store from "./core/redux/store/store"
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainComponent/>} />
-          <Route path="/login" element={<LoginComponent />} />
-          <Route path="/signup" element={<SignUpComponent />} />
-        </Routes>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<MainComponent/>} />
+              <Route path="/login" element={<LoginComponent />} />
+              <Route path="/signup" element={<SignUpComponent />} />
+            </Routes>
+          </BrowserRouter>
+      </Provider>
     </>
   )
 }

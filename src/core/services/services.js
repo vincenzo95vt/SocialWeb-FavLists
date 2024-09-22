@@ -36,6 +36,13 @@ export const loginUser = async (values) => {
         body: JSON.stringify(bodyValues)
         })
         const data = await response.json()
+        if(data.status === 401 ){
+            return data
+        }else if(data.status === 200){
+            localStorage.setItem("token", data.data.token )
+            localStorage.setItem("refresh_token", data.data.token_refresh )
+            return data
+        }
         return data
     } catch (error) {
         console.error(error.message)

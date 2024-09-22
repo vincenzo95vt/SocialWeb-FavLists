@@ -10,3 +10,7 @@
         color: #4E342E;
     }
 }
+
+.no-log-message, .success-log-message{
+    color: #4E342E;
+}
