@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import { object, string, number } from 'yup'
 import "./SignUpComponent.css"
-import { signUpUser } from '../../core/services/services'
+import { signUpUser } from '../../core/services/userServices/userServices'
 import { useNavigate } from 'react-router-dom'
 
 const SignUpComponent = () => {

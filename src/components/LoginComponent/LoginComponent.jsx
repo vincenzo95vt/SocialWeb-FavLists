@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Field, Form, Formik } from 'formik'
 import "./LoginComponent.css"
 import { object, string } from 'yup'
-import { loginUser } from '../../core/services/services'
+import { loginUser } from '../../core/services/userServices/userServices'
 import { useDispatch } from 'react-redux'
 import { successUserLog } from './LoginAction'
 import { useNavigate } from 'react-router-dom'

@@ -7,11 +7,15 @@
     left: 0;
     position: fixed;
     background-color: white;
+    box-shadow: 1px 1px 23px black;
 }
 
 .header img{
-    width: 5%;
-    height: auto;
+    width: 4rem;
+    height: 4rem;
+    align-self: center;
+    padding: 1%;
+    filter: drop-shadow(2px 2px 2px black); 
 }
 
 .header input{
@@ -24,7 +28,9 @@
     width: 15rem;
     justify-content: space-between;
     align-items: center;
+    padding: 2rem;
     span{
         color: brown;
+        font-weight: bold;
     }
 }

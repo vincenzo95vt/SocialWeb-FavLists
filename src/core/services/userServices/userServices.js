@@ -1,3 +1,5 @@
+import { handleExpiredToken } from "../utils"
+
 export const signUpUser = async (values) => {
     try {
         const bodyValues = {
@@ -46,5 +48,32 @@ export const loginUser = async (values) => {
         return data
     } catch (error) {
         console.error(error.message)
+    }
+}
+
+export const refreshToken = async () => {
+    try {
+        const token_refresh = localStorage.getItem("refresh_token")
+        if(!token_refresh){
+            throw new Error("No refresh token available");
+
+        }
+        const url = `http://localhost:4400/users/refreshToken`
+        const response = await fetch(url, {
+            method:"POST",
+            headers:{"auth-token": token_refresh}
+        })
+        if(!response.ok){
+            throw new Error("No refresh token available");
+        }
+        const data = await response.json()
+        if(data.token && data.refresh_token){
+            localStorage.setItem("token", data.token )
+            localStorage.setItem("refresh_token", data.refresh_token )
+        }
+        return data
+    } catch (error) {
+        handleExpiredToken()
+        console.error("Error refreshing token", error)
     }
 }
