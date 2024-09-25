@@ -3,7 +3,7 @@ import "./InfoComponent.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { getDataFromBack } from '../../core/services/postServices/postServices'
 import CardComponent from '../CardComponent/CardComponent'
-import { setLoading } from '../IndexComponent/InfoAction'
+import { setLoading, showData } from '../IndexComponent/InfoAction'
 
 
 const InfoComponent = () => {

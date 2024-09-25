@@ -1,0 +1,52 @@
+.card-component{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-bottom: 15%;
+    span{
+        color: brown;
+    }
+}
+.card-component .img-and-name-container{
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    span{
+        align-self: center;
+    }
+}
+
+.card-component .userPoster-info-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.card-component .userPoster-info-container img{
+    width: 3rem;
+    margin: 1%;
+}
+
+.card-component .userPoster-info-container .userPoster{
+    font-weight: bold;
+    font-size: 1.5rem;
+    align-self: center;
+}
+
+.card-component .container-description{
+    display: flex;
+}
+
+.card-component .container-description .userPoster{
+    font-weight: bold;
+    font-size: 1rem;
+    align-self: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.card-component .date-container{
+    align-self: flex-end;
+}
+
+.show-more-btn{
+    cursor: pointer;
+}

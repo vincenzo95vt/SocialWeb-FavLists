@@ -8,8 +8,7 @@ import { showData } from './InfoAction'
 
 const IndexComponent = () => {
     const [userData, setUserData] = useState(undefined)
-
-    const dispatch = useDispatch()
+    const token = localStorage.getItem("token")
     const userDataFromReducer = useSelector((state) => state.loginReducer.userData)
 
     useEffect(()=> {
@@ -18,7 +17,7 @@ const IndexComponent = () => {
     return (
     <div className='index-component'>
       {
-        userData ? 
+        token ? 
         (
             <>
                 <HeaderComponent/>
