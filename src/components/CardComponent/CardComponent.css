@@ -1,8 +1,10 @@
 .card-component{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    box-shadow: 1px 2px 19px  black;
+    border-radius: 4px;
     margin-bottom: 15%;
+    background-color: white;
     span{
         color: brown;
     }
@@ -24,6 +26,7 @@
 .card-component .userPoster-info-container img{
     width: 3rem;
     margin: 1%;
+    max-width: 100%;
 }
 
 .card-component .userPoster-info-container .userPoster{
@@ -45,8 +48,40 @@
 }
 .card-component .date-container{
     align-self: flex-end;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    svg{
+        width: 1.75rem;
+        height: auto; 
+        fill: brown;
+        margin: 1% 1% 1% 2%;
+
+    }
 }
 
 .show-more-btn{
+    margin-left: 1rem;
+    width: fit-content;
     cursor: pointer;
+    color: #b77f07;
+}
+.card-component .container-comments{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-component .container-comments .comments{
+    display: flex;
+    flex-direction: row;
+}
+.card-component .container-comments .comments .userPoster{
+    font-weight: bold;
+}
+.card-component .container-comments .comments .userPoster, 
+.card-component .container-comments .comments .comment-content,
+.card-component .container-comments .comments .date-comment{
+    display: flex;
+    margin: 0.5rem 1rem 0rem 1rem;
 }
