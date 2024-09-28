@@ -5,7 +5,7 @@ import "./ProfileInfoComponent.css"
 const ProfileInfoComponent = ({userData}) => {
     console.log(userData)
     const data = userData.userData
-
+    //ERROR EN USERDATA PORQUE VIENE UNDEFINED, VER EL COMPONENTE DE INDEX A VER QUE ES LO QUE TRAE.
     return (
     <div className='profile-user-card'>
       <div className='imgprofile-names-info'>
