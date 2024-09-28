@@ -3,11 +3,20 @@ import { useSelector } from 'react-redux'
 import HeaderComponent from '../HeaderComponent/HeaderComponent'
 import "./IndexComponent.css"
 import InfoComponent from '../InfoComponent/InfoComponent'
+import { useNavigate } from 'react-router-dom'
+import ProfileInfoComponent from '../ProfileInfoComponent/ProfileInfoComponent'
 
-const IndexComponent = () => {
+const IndexComponent = ({section}) => {
     const [userData, setUserData] = useState(undefined)
     const token = localStorage.getItem("token")
     const userDataFromReducer = useSelector((state) => state.loginReducer.userData)
+    const navigate = useNavigate()
+    useEffect(() => {
+      if(!token){
+        alert("Token expired, you will be redirected to login")
+        navigate("/login")
+      }
+    },[token])
 
     useEffect(()=> {
         userDataFromReducer ? setUserData(userDataFromReducer) : null
@@ -17,15 +26,24 @@ const IndexComponent = () => {
       {
         token ? 
         (
-            <>
+            <> 
                 <HeaderComponent/>
-                <InfoComponent/>
+                {
+                  section === "index" ?
+                  (
+                    <InfoComponent/>
+                  )
+                  :
+                  (
+                    section === "profile" && 
+                    (
+                      <ProfileInfoComponent userData={userData}/>
+                    )
+                  )
+                }
             </>
         ) 
-        :
-        (
-            <div>No data to show</div>
-        )
+        : null
       }
     </div>
   )

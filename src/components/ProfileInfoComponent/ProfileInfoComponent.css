@@ -1,0 +1,37 @@
+.profile-user-card{
+    display: flex;
+    width: 75rem;
+    background-color: white;
+}
+
+.profile-user-card .imgprofile-names-info{
+    display: flex;
+    width: 100%;
+}
+
+.profile-user-card .imgprofile-names-info img{
+    width: 12rem;
+}
+
+.profile-user-card .imgprofile-names-info .name-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-user-card .imgprofile-names-info .name-info span{
+    color: black;
+}
+.profile-user-card .imgprofile-names-info .name-info .name-last-name span{
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}
+.profile-user-card .imgprofile-names-info .name-info .name-last-name svg{
+    width: 2rem;
+    height: auto;
+}
+.profile-user-card .imgprofile-names-info .name-info .userName{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}

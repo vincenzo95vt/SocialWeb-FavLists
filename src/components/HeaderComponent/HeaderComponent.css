@@ -26,11 +26,14 @@
 .header .container-opt{
     display: flex;
     width: 15rem;
-    justify-content: space-between;
+    height: fit-content;
+    justify-content: space-around;
     align-items: center;
-    padding: 2rem;
-    span{
-        color: brown;
-        font-weight: bold;
+    align-self: center;
+    svg{
+        fill: brown;
+        width: 2rem;
+        height: auto;
+        cursor: pointer;        
     }
 }
