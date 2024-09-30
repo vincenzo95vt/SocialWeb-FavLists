@@ -2,12 +2,12 @@ import { refreshToken } from "../userServices/userServices"
 
 export const getDataFromBack = async () => {
     try {
-        const token = localStorage.getItem("token")
+        let token = localStorage.getItem("token")
         if(!token) {
             throw new Error("Token not found")
         }
         const url = `http://localhost:4400/posts/`
-        const response = await fetch(url, {
+        let response = await fetch(url, {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
