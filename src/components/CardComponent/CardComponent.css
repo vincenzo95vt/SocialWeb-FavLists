@@ -1,87 +1,154 @@
-.card-component{
+
+.card-component {
     display: flex;
     flex-direction: column;
-    box-shadow: 1px 2px 19px  black;
-    border-radius: 4px;
-    margin-bottom: 15%;
-    background-color: white;
-    span{
-        color: brown;
-    }
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    color: brown;
 }
-.card-component .img-and-name-container{
+
+.card-component span {
+    color: #b77f07;
+}
+
+.card-component .img-and-name-container {
     display: flex;
     flex-direction: column;
     width: 50rem;
-    span{
+    margin-bottom: 1.5rem;
+    span {
         align-self: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: brown;
+    }
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+        margin-top: 1rem;
     }
 }
 
-.card-component .userPoster-info-container{
+.card-component .userPoster-info-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-.card-component .userPoster-info-container img{
-    width: 3rem;
-    margin: 1%;
-    max-width: 100%;
+    margin-bottom: 1rem;
 }
 
-.card-component .userPoster-info-container .userPoster{
-    font-weight: bold;
-    font-size: 1.5rem;
-    align-self: center;
-}
-
-.card-component .container-description{
-    display: flex;
-}
-
-.card-component .container-description .userPoster{
-    font-weight: bold;
-    font-size: 1rem;
-    align-self: center;
-    margin-left: 1rem;
+.card-component .userPoster-info-container img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
     margin-right: 1rem;
 }
-.card-component .date-container{
-    align-self: flex-end;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    svg{
-        width: 1.75rem;
-        height: auto; 
-        fill: brown;
-        margin: 1% 1% 1% 2%;
 
+.card-component .userPoster-info-container .userPoster {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: brown;
+}
+
+.card-component .container-description {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.card-component .container-description .userPoster {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-component .post-description {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.4rem;
+}
+
+.card-component .container-comments {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    border-top: 1px solid #ddd;
+    margin-top: 1rem;
+}
+
+.card-component .container-comments .comments {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.card-component .container-comments .comments .userPoster {
+    font-weight: bold;
+    color: #444;
+}
+
+.card-component .container-comments .comments .comment-content {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.card-component .container-comments .comments .date-comment {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.card-component .date-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    align-self: flex-end;
+    margin-top: 1rem;
+    .textarea-container{
+        width: 100%;
+        .comment{
+            align-self: center;
+            width: 90%;
+            height: 2.5rem;
+        }
+    }
+    .svg-and-date{
+        display: flex;
+        justify-content: space-between;
+        align-self: flex-end;
+        align-items: center;
+        height: 12vh;
+        width: 20rem;
+        span {
+            font-size: 0.9rem;
+            color: #777;
+            margin-right: 0.5rem;
+        }
+        svg {
+            width: 1.5rem;
+            height: auto;
+            fill: #b77f07;
+            cursor: pointer;
+        }
     }
 }
 
-.show-more-btn{
-    margin-left: 1rem;
-    width: fit-content;
-    cursor: pointer;
+.show-more-btn {
+    margin-top: 1rem;
     color: #b77f07;
-}
-.card-component .container-comments{
-    display: flex;
-    flex-direction: column;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
-.card-component .container-comments .comments{
-    display: flex;
-    flex-direction: row;
-}
-.card-component .container-comments .comments .userPoster{
-    font-weight: bold;
-}
-.card-component .container-comments .comments .userPoster, 
-.card-component .container-comments .comments .comment-content,
-.card-component .container-comments .comments .date-comment{
-    display: flex;
-    margin: 0.5rem 1rem 0rem 1rem;
+.show-more-btn:hover {
+    color: #995c04;
 }

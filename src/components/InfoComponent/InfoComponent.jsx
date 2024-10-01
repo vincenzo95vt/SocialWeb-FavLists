@@ -47,7 +47,7 @@ const InfoComponent = () => {
                     {
                         info.map((post, idx) => 
                             (
-                                <CardComponent key={idx} post={post} />
+                                <CardComponent key={idx} post={post}/>
                             ))
                     }
                 </>

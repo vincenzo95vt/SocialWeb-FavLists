@@ -1,59 +1,117 @@
-.profile-user-card{
+
+.profile-user-card {
     display: flex;
+    flex-direction: column;
     width: 75rem;
-    background-color: white;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
 }
 
-.profile-user-card .imgprofile-names-info{
+.profile-user-card .imgprofile-names-info {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
     width: 100%;
 }
 
-.profile-user-card .imgprofile-names-info img{
+.profile-user-card .imgprofile-names-info img {
     width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
 }
 
-.profile-user-card .imgprofile-names-info .name-info{
+.profile-user-card .name-info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-.profile-user-card .imgprofile-names-info .name-info span{
-    color: black;
+.profile-user-card .name-info .name-last-name {
+    display: flex;
+    align-items: center;
 }
-.profile-user-card .imgprofile-names-info .name-info .name-last-name span{
-    font-size: 2rem;
+
+.profile-user-card .name-info .name-last-name span {
+    font-size: 1.75rem;
     font-weight: bold;
-    color: black;
-}
-.profile-user-card .imgprofile-names-info .name-info .name-last-name svg{
-    width: 2rem;
-    height: auto;
-}
-.profile-user-card .imgprofile-names-info .name-info .userName{
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-}
-.profile-user-card .follows-container{
-    color: black;
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+    color: brown;
 }
 
-.profile-user-card .follows-container .followers,
-.profile-user-card .follows-container .following{
+.profile-user-card .name-info .name-last-name svg {
+    width: 1.5rem;
+    height: auto;
+    margin-left: 1rem;
+    fill: brown;
+}
+
+.profile-user-card .userName {
+    font-size: 1.5rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.profile-user-card .follows-container {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    align-items: center;
+    margin: 0 2rem;
+}
+
+.follows-container .followers, .follows-container .following {
     display: flex;
     flex-direction: column;
-    span{
-        align-self: center;
-    }
-    .name-info{
-        font-size: 2rem;
-        font-weight: bold;
-    }
-    .info{
-        font-size: 1.75rem;
-    }
+    align-items: center;
+    font-size: 1.2rem;
+    color: brown;
+}
+
+.followers .info, .following .info {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: brown;
+}
+
+.profile-user-card .myLists-container {
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+    color: brown;
+}
+
+.profile-user-card .user-posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.user-posts-container .post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-container img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.post-container span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: brown;
+    text-align: center;
 }

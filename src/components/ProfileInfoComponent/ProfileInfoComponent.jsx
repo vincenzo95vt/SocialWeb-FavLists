@@ -1,19 +1,20 @@
 import React from 'react'
 import "./ProfileInfoComponent.css"
+import { useNavigate } from 'react-router-dom'
+import CardComponent from '../CardComponent/CardComponent'
+import UserPostComponent from './UserPostComponent/UserPostComponent'
 
 
 const ProfileInfoComponent = ({userData}) => {
     console.log(userData)
     const data = userData.userData
-    //ERROR EN USERDATA PORQUE VIENE UNDEFINED, VER EL COMPONENTE DE INDEX A VER QUE ES LO QUE TRAE.
     return (
     <div className='profile-user-card'>
         <div className='imgprofile-names-info'>
             <img src={data.imgProfile} alt="" />
             <div className='name-info'>
                 <div className='name-last-name'>
-                    <span>{data.name} </span>
-                    <span>{data.lastName} </span>
+                    <span>{data.name} {data.lastName} </span>
                     {
                         data.privacy === "private" ?
                         (
@@ -30,20 +31,22 @@ const ProfileInfoComponent = ({userData}) => {
                 </div>
                 <span className='userName'>{data.userName}</span>
             </div>
-        </div>
-        <div className='follows-container'>
-            <div className='followers'>
-                <span className='name-info'>Followers</span>
-                <span className='info'>{data.followers.length}</span>
-            </div>
-            <div className='following'>
-                <span className='name-info'>Following</span>
-                <span className='info'>{data.following.length}</span>
+            <div className='follows-container'>
+                <div className='followers'>
+                    <span className='name-info'>Followers</span>
+                    <span className='info'>{data.followers.length}</span>
+                </div>
+                <div className='following'>
+                    <span className='name-info'>Following</span>
+                    <span className='info'>{data.following.length}</span>
+                </div>
             </div>
         </div>
         <div className='myLists-container'>
+            <span>My favourites lists: </span>
             <span>{data.myLists.length}</span>
         </div>
+        <UserPostComponent data={data}/>
     </div>
   )
 }
