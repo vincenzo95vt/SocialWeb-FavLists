@@ -17,7 +17,6 @@ const InfoComponent = () => {
         dispatch(setLoading(true))
         try {
           const data = await getDataFromBack()
-          console.log(data.posts)
           dispatch(showData(data.posts))
           setInfo(data.posts)
         } catch (error) {

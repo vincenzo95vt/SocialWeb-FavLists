@@ -35,3 +35,25 @@
     flex-direction: column;
     justify-self: center;
 }
+.profile-user-card .follows-container{
+    color: black;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.profile-user-card .follows-container .followers,
+.profile-user-card .follows-container .following{
+    display: flex;
+    flex-direction: column;
+    span{
+        align-self: center;
+    }
+    .name-info{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .info{
+        font-size: 1.75rem;
+    }
+}
