@@ -12,7 +12,7 @@ const InfoComponent = () => {
 
     const dispatch = useDispatch()
     const loadingFromReducer = useSelector((state) => state.infoReducer.isLoading)
-  useEffect(()=> {
+
     const fetchData = async () => {
         dispatch(setLoading(true))
         try {
@@ -25,6 +25,7 @@ const InfoComponent = () => {
             dispatch(setLoading(false))
         }
       }
+  useEffect(()=> {
       fetchData()
 }, [])
 
@@ -47,7 +48,7 @@ const InfoComponent = () => {
                     {
                         info.map((post, idx) => 
                             (
-                                <CardComponent key={idx} post={post}/>
+                                <CardComponent key={idx} post={post} fetchData={fetchData}/>
                             ))
                     }
                 </>

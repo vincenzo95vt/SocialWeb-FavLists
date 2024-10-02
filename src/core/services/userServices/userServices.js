@@ -54,6 +54,7 @@ export const loginUser = async (values) => {
 export const refreshToken = async () => {
     try {
         const token_refresh = localStorage.getItem("refresh_token")
+        console.log(token_refresh)
         if(!token_refresh){
             throw new Error("No refresh token available");
 
@@ -61,7 +62,9 @@ export const refreshToken = async () => {
         const url = `http://localhost:4400/users/refreshToken`
         const response = await fetch(url, {
             method:"POST",
-            headers:{"auth-token": token_refresh}
+            headers:{"Content-type":"application/json",
+                "auth-token" : token_refresh
+            },
         })
         if(!response.ok){
             throw new Error("No refresh token available");

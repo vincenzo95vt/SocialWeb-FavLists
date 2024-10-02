@@ -1,12 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./CardComponent.css"
 import { formatISOToDDMMYYYY } from '../../core/services/utils'
-const CardComponent = ({post}) => {
+import { sendComment } from '../../core/services/postServices/postServices'
+const CardComponent = ({post, fetchData}) => {
     const [showMoreComments, setShowMoreComments] = useState(false)
     const [commentArea, setCommentArea] = useState(undefined)
+    const [comment, setComment] = useState(undefined)
+    const [error, setError] = useState(undefined)
 
+    const handleComment = (e) => {
+        setComment({
+            ...comment,
+            [e.target.name] : e.target.value
+        })
+    }       
+    const sendCommentToBack = async () => {
+        if(comment){
+            const addComment = await sendComment(comment, post._id)
+            fetchData()
+        }
+    }
 
     const commentsToShow = showMoreComments ? post.comments : post.comments.slice(0, 0);
+
+    useEffect(() => {
+
+    },[post.comments])
 
     return (
         <div className='card-component'>
@@ -51,7 +70,10 @@ const CardComponent = ({post}) => {
                 {
                     commentArea && 
                     (
-                        <textarea className='comment' name="comment" id=""></textarea>
+                        <>
+                            <textarea className='comment' name="comment" id="" onChange={(e) => handleComment(e)}></textarea>
+                            <button onClick={() => sendCommentToBack()}>Send</button>
+                        </>   
                     )
                 }
                 </div>

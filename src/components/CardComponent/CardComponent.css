@@ -114,9 +114,17 @@
     margin-top: 1rem;
     .textarea-container{
         width: 100%;
+        display: flex;
+        justify-content: space-around;
+        button{
+            width: 7rem;
+            height: 2.5rem;
+            align-items: center;
+            align-self: center;
+        }
         .comment{
             align-self: center;
-            width: 90%;
+            width: 60%;
             height: 2.5rem;
         }
     }

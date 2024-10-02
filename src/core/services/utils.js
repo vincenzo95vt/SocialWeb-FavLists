@@ -1,5 +1,6 @@
 export const handleExpiredToken = () => {
     alert("Su sesion ha caducado, se le redigirá al login")
+    window.location.href = "/login"
     localStorage.clear()
 }
 
