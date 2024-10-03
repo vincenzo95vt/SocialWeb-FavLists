@@ -112,10 +112,15 @@
     justify-content: space-between;
     align-self: flex-end;
     margin-top: 1rem;
-    .textarea-container{
+    .textarea-and-list-container{
         width: 100%;
         display: flex;
         justify-content: space-around;
+        .errorSpan{
+            position: absolute;
+            top: 69.8rem;
+            left:23rem
+        }
         button{
             width: 7rem;
             height: 2.5rem;
@@ -145,6 +150,24 @@
             height: auto;
             fill: #b77f07;
             cursor: pointer;
+        }
+        .list-container{
+            position: absolute;
+            border: 1px solid;
+            top: 69.4rem;
+            background-color: white;
+            left: 57rem;
+            height: 2rem;
+            align-items: center;
+            display: flex;
+            span{
+                cursor: pointer;
+            }
+            button{
+                height: 1.5rem;
+                text-align: center;
+                font-size: 0.85rem;
+            }
         }
     }
 }

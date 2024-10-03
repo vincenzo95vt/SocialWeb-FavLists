@@ -39,10 +39,13 @@ export const loginUser = async (values) => {
         })
         const data = await response.json()
         if(data.status === 401 ){
+            console.log(data.status)
             return data
         }else if(data.status === 200){
+            console.log(data.data.userData)
             localStorage.setItem("token", data.data.token )
             localStorage.setItem("refresh_token", data.data.token_refresh )
+            localStorage.setItem("userData", JSON.stringify(data.data.userData))
             return data
         }
         return data
@@ -78,5 +81,52 @@ export const refreshToken = async () => {
     } catch (error) {
         handleExpiredToken()
         console.error("Error refreshing token", error)
+    }
+}
+
+export const createNewList = async (value, postId) => {
+    let token = localStorage.getItem("token")
+    try {
+        const bodyValues = {
+            name: value.listName,
+            postId: postId
+        }
+        console.log(bodyValues)
+        const url = "http://localhost:4400/users/addNewList"
+        let response = await fetch(url, {
+            method: "PATCH",
+            headers: {
+                "Content-type":"application/json",
+                "auth-token": token
+            },
+            body: JSON.stringify(bodyValues)
+            }
+        )
+        if(response.status === 401){
+            const refreshData = await refreshToken();
+            if (refreshData && refreshData.token) {
+                token = refreshData.token;
+                localStorage.setItem("token", token);
+
+                response = await fetch(url, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "auth-token": token,
+                    },
+                    body: JSON.stringify(value),
+                });
+
+                if (response.status === 200) {
+                    const data = await response.json()
+                    console.log(data)
+                }
+            }
+        }else{
+            const data = await response.json()
+            console.log(data)
+        }
+    } catch (error) {
+        console.error(error.error)
     }
 }
