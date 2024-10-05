@@ -130,3 +130,22 @@ export const createNewList = async (value, postId) => {
         console.error(error.error)
     }
 }
+
+export const refreshUserData =  async () => {
+    try {
+        const token = localStorage.getItem("token")
+        const url = "http://localhost:4400/users/refreshUserData"
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+            }
+        }) 
+        const data = await response.json()
+        console.log("hecho", data)
+        localStorage.setItem("userData", JSON.stringify(data.data))
+    } catch (error) {
+        console.error(error)
+    }
+}

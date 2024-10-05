@@ -14,7 +14,6 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,6 +32,9 @@ body {
    background-attachment: fixed; 
   background-size: cover;
   z-index: -1;
+  list-style-type: none; /* Elimina los puntos */
+  padding: 0; /* Opcional: elimina el relleno predeterminado */
+  margin: 0; 
 }
 
 

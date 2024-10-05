@@ -133,33 +133,68 @@
             height: 2.5rem;
         }
     }
-    .svg-and-date{
+    .container-dp-block{
         display: flex;
-        justify-content: space-between;
-        align-self: flex-end;
-        align-items: center;
-        height: 12vh;
-        width: 20rem;
-        span {
-            font-size: 0.9rem;
-            color: #777;
-            margin-right: 0.5rem;
-        }
-        svg {
-            width: 1.5rem;
-            height: auto;
-            fill: #b77f07;
-            cursor: pointer;
+        flex-direction: column;
+        .svg-and-date{
+            display: flex;
+            justify-content: space-between;
+            align-self: flex-end;
+            align-items: center;
+            height: 12vh;
+            width: 14rem;
+            .svgFav-container{
+                height: fit-content;
+            }
+            span {
+                font-size: 0.9rem;
+                color: #777;
+                margin-right: 0.5rem;
+            }
+            svg {
+                width: 1.5rem;
+                height: auto;
+                fill: #b77f07;
+                cursor: pointer;
+            }
         }
         .list-container{
-            position: absolute;
-            border: 1px solid;
-            top: 69.4rem;
-            background-color: white;
-            left: 57rem;
+            position: relative;
+            left: 15rem;
+            background-color: transparent;
             height: 2rem;
+            width: 27rem;
             align-items: center;
             display: flex;
+            gap: 1rem;
+            .divSpan-lists{
+                border: 1px solid;
+                border-radius: 5px;
+                padding: 1%;
+                width: 11rem;
+                ul{
+                    list-style-type: none; /* Elimina los puntos */
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        cursor: pointer;
+                    }
+                    .create-list{
+                        font-weight: bold;
+                    }
+                }
+            }
+            .list-input-container{
+                border: 1px solid;
+                background-color: white;
+                border-radius: 5px;
+
+                width: 16rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1%;
+            }
             span{
                 cursor: pointer;
             }
