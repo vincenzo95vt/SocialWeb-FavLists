@@ -54,6 +54,11 @@ const DateComponent = ({post}) => {
             }
         }
     }
+
+    const addPostToList = async () => {
+        
+    }
+
    useEffect(() => {
         if(error){
             setTimeout(() => {
@@ -98,7 +103,7 @@ const DateComponent = ({post}) => {
                                                 (
                                                     userDataParsed && (
                                                         userDataParsed.myLists.map((list, idx) => (
-                                                            <li key={idx}>{idx +1}- {list.name}</li>
+                                                            <li  key={idx}>{idx +1}- {list.name}</li>
                                                         ))
                                                     )
                                                 )

@@ -84,6 +84,10 @@ export const refreshToken = async () => {
     }
 }
 
+export const  addPostToUserList = () => {
+    //TENGO QUE HACER LLAMADA AL BACK PARA QUE AÑADA POST A UNA LISTA.
+}
+
 export const createNewList = async (value, postId) => {
     let token = localStorage.getItem("token")
     try {
