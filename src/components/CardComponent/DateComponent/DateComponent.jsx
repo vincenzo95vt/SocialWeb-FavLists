@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { createNewList, refreshUserData } from '../../../core/services/userServices/userServices'
+import { addPostToUserList, createNewList, refreshUserData } from '../../../core/services/userServices/userServices'
 import { sendComment } from '../../../core/services/postServices/postServices'
 import { formatISOToDDMMYYYY } from '../../../core/services/utils'
 import { useDispatch, useSelector } from 'react-redux'
@@ -55,8 +55,15 @@ const DateComponent = ({post}) => {
         }
     }
 
-    const addPostToList = async () => {
-        
+    const sendPostToList = async (listId, postId) => {
+        try {
+            dispatch(setLoading(true))
+            await addPostToUserList(listId, postId)
+        } catch (error) {
+            console.error(error)
+        }finally{
+            dispatch(setLoading(false))
+        }
     }
 
    useEffect(() => {
@@ -66,7 +73,6 @@ const DateComponent = ({post}) => {
             },[3000])
         }
     },[error])
-    console.log( userDataParsed.myLists)
   return (
     <div className='date-container'>
                 <div className='textarea-and-list-container'>
@@ -103,7 +109,7 @@ const DateComponent = ({post}) => {
                                                 (
                                                     userDataParsed && (
                                                         userDataParsed.myLists.map((list, idx) => (
-                                                            <li  key={idx}>{idx +1}- {list.name}</li>
+                                                            <li onClick={() => sendPostToList(list._id, post._id)} key={idx}>{idx +1}- {list.name}</li>
                                                         ))
                                                     )
                                                 )

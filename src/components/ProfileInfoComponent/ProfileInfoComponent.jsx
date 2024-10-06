@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./ProfileInfoComponent.css"
 import UserPostComponent from './UserPostComponent/UserPostComponent'
 
 
 const ProfileInfoComponent = () => {
+    const [hidden, setHidden] = useState(false)
+
     const data = localStorage.getItem("userData")
     const dataParsed = JSON.parse(data)
-    console.log(dataParsed)
+    console.log(hidden)
     return (
     <div className='profile-user-card'>
         <div className='imgprofile-names-info'>
@@ -44,6 +46,16 @@ const ProfileInfoComponent = () => {
         <div className='myLists-container'>
             <span>My favourites lists: </span>
             <span>{dataParsed.myLists.length}</span>
+            <button onClick={() => hidden ? setHidden(false) : setHidden(true)}>Show lists</button>
+        </div>
+        <div className={`list-to-show ${hidden ? "hidden" : "flex"}`} >
+            {
+                dataParsed.myLists.map((list, idx) => (
+                    <div key={idx} className='container-name-list'>
+                        <span>{list.name}</span>
+                    </div>
+                ))
+            }
         </div>
         <UserPostComponent dataParsed={dataParsed}/>
     </div>

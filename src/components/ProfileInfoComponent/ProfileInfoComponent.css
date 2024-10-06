@@ -80,8 +80,53 @@
 
 .profile-user-card .myLists-container {
     margin-top: 1.5rem;
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
     font-size: 1.3rem;
     color: brown;
+    margin-bottom: 1rem;
+}
+.profile-user-card .list-to-show{
+    display: flex;
+    height: 3rem; 
+    width: fit-content;
+    gap: 1rem;
+    justify-content: flex-start;
+    span{
+        font-size: 2rem;
+        width: fit-content;
+        font-weight: bold;
+    }
+}
+.profile-user-card .list-to-show.hidden {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+.profile-user-card .list-to-show.flex{
+    height: 5rem;
+    width: 100%;
+    transition: height 0.5s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+.profile-user-card .list-to-show .container-name-list {
+    background-color: rgb(222, 216, 216);
+    padding: 2%;
+    height: 0.75rem; 
+    width: 5rem; 
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    transition: height 0.5s ease, width 0.5s ease;
+}
+
+.profile-user-card .list-to-show .container-name-list:hover {
+    width: 8rem; 
+    height: 1.5rem; 
 }
 
 .profile-user-card .user-posts-container {

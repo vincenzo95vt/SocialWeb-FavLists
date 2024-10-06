@@ -161,6 +161,7 @@
         .list-container{
             position: relative;
             left: 15rem;
+            top: 2rem;
             background-color: transparent;
             height: 2rem;
             width: 27rem;
@@ -170,6 +171,7 @@
             .divSpan-lists{
                 border: 1px solid;
                 border-radius: 5px;
+                background-color: white;
                 padding: 1%;
                 width: 11rem;
                 ul{

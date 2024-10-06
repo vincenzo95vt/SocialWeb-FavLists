@@ -84,8 +84,28 @@ export const refreshToken = async () => {
     }
 }
 
-export const  addPostToUserList = () => {
-    //TENGO QUE HACER LLAMADA AL BACK PARA QUE AÑADA POST A UNA LISTA.
+export const  addPostToUserList = async (listId, postId) => {
+    try {
+        const token = localStorage.getItem("token")
+        const url = `http://localhost:4400/users/addPostToList/${listId}`
+        const response = await fetch(url, {
+            method: "PATCH",
+            headers: {
+                "Content-type": "application/json",
+                "auth-token": token ,
+            },
+            body: JSON.stringify({ postId }),
+        })
+        if(response.status === 400){
+            console.log(response)
+        }else if(response.status === 200){
+            const data = await response.json()
+            console.log(data)
+            return data
+        }
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 export const createNewList = async (value, postId) => {
