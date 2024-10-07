@@ -32,8 +32,8 @@ body {
    background-attachment: fixed; 
   background-size: cover;
   z-index: -1;
-  list-style-type: none; /* Elimina los puntos */
-  padding: 0; /* Opcional: elimina el relleno predeterminado */
+  list-style-type: none; 
+  padding: 0; 
   margin: 0; 
 }
 

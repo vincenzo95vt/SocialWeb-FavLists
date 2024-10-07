@@ -89,3 +89,27 @@ export const sendComment = async (comment, idPost) => {
         console.error("Error sending comment:", error.message);
     }
 };
+
+export const getPostsLists  = async (postId) => {
+    try {
+        const token = localStorage.getItem("token")
+        const url = `http://localhost:4400/posts/${postId}`
+        const response = await fetch(url, {
+            method:"GET",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+                }
+        })
+        if(response.status === 400){
+            throw new Error("Error fetching post")
+        }else if(response.status === 200){
+            const data = await response.json()
+            console.log(data)
+            return data.data
+        }
+    } catch (error) {
+        console.error("Error geting list:", error.message);
+
+    }
+}

@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "./CardComponent.css"
 import { formatISOToDDMMYYYY } from '../../core/services/utils'
-import { sendComment } from '../../core/services/postServices/postServices'
-import e from 'cors'
-import { createNewList } from '../../core/services/userServices/userServices'
 import DateComponent from './DateComponent/DateComponent'
 
 const CardComponent = ({post, fetchData}) => {

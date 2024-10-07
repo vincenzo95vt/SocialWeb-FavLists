@@ -1,7 +1,7 @@
 import React from 'react'
 
 const UserPostComponent = ({dataParsed}) => {
-    console.log(dataParsed)
+    console.log("USERPOST COMPONENT", dataParsed)
     return (
         <div className='user-posts-container'>
                 {

@@ -59,6 +59,7 @@ const DateComponent = ({post}) => {
         try {
             dispatch(setLoading(true))
             await addPostToUserList(listId, postId)
+            await refreshUserData()
         } catch (error) {
             console.error(error)
         }finally{

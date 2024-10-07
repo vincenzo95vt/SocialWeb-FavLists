@@ -5,8 +5,9 @@ import "./IndexComponent.css"
 import InfoComponent from '../InfoComponent/InfoComponent'
 import { useNavigate } from 'react-router-dom'
 import ProfileInfoComponent from '../ProfileInfoComponent/ProfileInfoComponent'
+import FavouriteListComponent from '../ProfileInfoComponent/FavouriteListComponent/FavouriteListComponent'
 
-const IndexComponent = ({section}) => {
+const IndexComponent = ({section, path}) => {
     const [userData, setUserData] = useState(undefined)
     const token = localStorage.getItem("token")
     const userDataFromReducer = useSelector((state) => state.loginReducer.userData)
@@ -35,9 +36,16 @@ const IndexComponent = ({section}) => {
                   )
                   :
                   (
-                    section === "profile" && 
+                    section === "profile" && path !== "favouriteLists" ?
                     (
                       <ProfileInfoComponent userData={userData}/>
+                    )
+                    :
+                    (
+                      path === "favouriteLists" &&
+                      (
+                        <FavouriteListComponent/>
+                      )
                     )
                   )
                 }

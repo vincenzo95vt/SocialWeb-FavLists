@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import "./ProfileInfoComponent.css"
 import UserPostComponent from './UserPostComponent/UserPostComponent'
+import { getPostsLists } from '../../core/services/postServices/postServices'
+import { useDispatch } from 'react-redux'
+import { showFavouritePosts, showListData } from './ProfileInfoAction'
+import { setLoading } from '../IndexComponent/InfoAction'
+import { useNavigate } from 'react-router-dom'
 
 
 const ProfileInfoComponent = () => {
@@ -8,7 +13,26 @@ const ProfileInfoComponent = () => {
 
     const data = localStorage.getItem("userData")
     const dataParsed = JSON.parse(data)
-    console.log(hidden)
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const showListPosts = async (list) => {
+        try {
+            dispatch(setLoading(true))
+            const data = await Promise.all(
+                list.favouritePosts.map(id => getPostsLists(id))
+            );
+            dispatch(showFavouritePosts(data))
+            dispatch(showListData(list))
+            navigate(`/profile/favouriteList/${list._id}`)
+        } catch (error) {
+            console.error(error)
+        }finally{
+            dispatch(setLoading(false))
+        }
+    };
+
     return (
     <div className='profile-user-card'>
         <div className='imgprofile-names-info'>
@@ -51,7 +75,7 @@ const ProfileInfoComponent = () => {
         <div className={`list-to-show ${hidden ? "hidden" : "flex"}`} >
             {
                 dataParsed.myLists.map((list, idx) => (
-                    <div key={idx} className='container-name-list'>
+                    <div onClick={() => showListPosts(list)} key={idx} className='container-name-list'>
                         <span>{list.name}</span>
                     </div>
                 ))
