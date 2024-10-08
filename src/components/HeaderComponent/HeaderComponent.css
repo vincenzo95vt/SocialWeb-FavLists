@@ -31,9 +31,56 @@
     align-items: center;
     align-self: center;
     svg{
-        fill: brown;
+        fill: rgb(11, 11, 11);
         width: 2rem;
         height: auto;
         cursor: pointer;        
+    }
+}
+.header .container-find-users{
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px black;
+    position: absolute;
+    width: 15rem;
+    background-color: white;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-67%);
+    span{
+        padding: 0.35rem;
+        color: black;
+    }
+}
+
+.header .container-find-users .container-user-found{
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease;
+    img{
+        width: 2.5rem;
+        height: auto;
+    }
+    &:hover{
+        cursor: pointer;
+        background-color: #e4e0e0;
+    }
+}
+
+.header .error{
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px black;
+    position: absolute;
+    width: 15rem;
+    background-color: white;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-67%);
+    span{
+        padding: 0.35rem;
+        color: red;
     }
 }

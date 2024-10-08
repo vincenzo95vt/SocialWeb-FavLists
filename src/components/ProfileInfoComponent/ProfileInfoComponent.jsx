@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const ProfileInfoComponent = () => {
-    const [hidden, setHidden] = useState(false)
+    const [hidden, setHidden] = useState(true)
 
     const data = localStorage.getItem("userData")
     const dataParsed = JSON.parse(data)

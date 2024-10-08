@@ -4,10 +4,10 @@
     align-content: space-between;
     border-radius: 15px;
     padding: 4rem;
-    background: #F4E1D2;
-    box-shadow: inset 0px 0px 20px rgba(105, 65, 52, 0.5); 
+    background: #807f7e;
+    box-shadow: inset  0px 0px 20px rgba(25, 236, 2, 0.5); 
     h1{
-        color: #4E342E;
+        color: #023806;
     }
 }
 
@@ -34,7 +34,10 @@
     display: flex;
     width: 100%; 
     padding: 0.5rem 0; 
-    color: #4E342E; 
+    color: black; 
+    &::placeholder{
+        color: rgb(73, 72, 72);
+    }
     &:focus{
         outline: none;
     }
@@ -51,17 +54,17 @@
     border: 1px solid #8D8D8D; 
     border-radius: 5px; 
     width: 100%; 
-    background: #F4E1D2; 
-    color: #4E342E; /* Marrón Oscuro */
+    background: transparent; 
+    color: black; 
 }
 
 .select option {
-    background: #F4E1D2; /* Beige */
-    color: #4E342E; /* Marrón Oscuro */
+    background: transparent; 
+    color: black; 
 }
 
 .success-message {
-    color: #2ECC71; /* Verde Lima */
+    color: #2ECC71; 
     align-self: center;
     margin-bottom: 1rem;
     display: flex;
@@ -71,7 +74,7 @@
     color: #4E342E;
 }
 .login-btn {
-    color: #4E342E; 
+    color: black; 
     cursor: pointer;
     font-weight: bold;
 }

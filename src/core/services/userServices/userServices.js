@@ -174,3 +174,29 @@ export const refreshUserData =  async () => {
     }
 }
 
+export const findUserByName = async (name) => {
+    try {
+        const token = localStorage.getItem("token")
+        const url = `http://localhost:4400/users/findUserByName/${name}`
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+            }
+        })
+        if(response.status === 404){
+            const data = await response.json()
+            console.log(data)
+            return data
+        }else if(response.status === 200){
+            const data = await response.json()
+            console.log(data)
+            return data
+        }
+    } catch (error) {
+        console.error(error.error)
+    }
+}
+
+

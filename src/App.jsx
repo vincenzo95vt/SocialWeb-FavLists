@@ -18,6 +18,7 @@
                 <Route path="/login" element={<LoginComponent />} />
                 <Route path="/signup" element={<SignUpComponent />} />
                 <Route path='/index' element={<IndexComponent section={"index"} />} />
+                <Route path='/index/user/:id' element={<IndexComponent section={"index"} path={"user"}/>}/>
                 <Route path='/profile' element={<IndexComponent section={"profile"}/>}/>
                 <Route path='/profile/favouriteList/:id' element={<IndexComponent section={"profile"} path={"favouriteLists"}/>}/>
               </Routes>
