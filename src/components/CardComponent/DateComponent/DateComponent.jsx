@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setLoading } from '../../IndexComponent/InfoAction'
 
 
-const DateComponent = ({post}) => {
+const DateComponent = ({post, fetchData}) => {
     const [commentArea, setCommentArea] = useState(undefined)
     const [comment, setComment] = useState(undefined)
     const [listContainer, setListContainer] = useState(undefined)

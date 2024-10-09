@@ -12,7 +12,7 @@ const HeaderComponent = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  
+
   const findUser = async (e) => {
     const query = e.target.value
     if(query === ""){
@@ -35,9 +35,8 @@ const HeaderComponent = () => {
   }
   const sendUserFoundData = (userData) => {
     dispatch(showDataUserFound(userData))
-
+    navigate(`/index/user/${userData._id}`)
   }
-  console.log(usersData)
   return (
     <div className='header'>
       <img src="/file.png" alt="" />

@@ -1,11 +1,10 @@
 import React from 'react'
 
-const UserPostComponent = ({dataParsed}) => {
-    console.log("USERPOST COMPONENT", dataParsed)
+const UserPostComponent = ({userInfo}) => {
     return (
         <div className='user-posts-container'>
                 {
-                    dataParsed.posts.map((post, idx) => (
+                    userInfo.posts.map((post, idx) => (
                         <div key={idx}>
                             <div className='post-container' onClick={() => console.log(post)}>
                                 <img src={post.postPath} alt="" />

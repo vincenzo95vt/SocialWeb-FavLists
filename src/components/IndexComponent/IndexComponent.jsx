@@ -8,9 +8,7 @@ import ProfileInfoComponent from '../ProfileInfoComponent/ProfileInfoComponent'
 import FavouriteListComponent from '../ProfileInfoComponent/FavouriteListComponent/FavouriteListComponent'
 
 const IndexComponent = ({section, path}) => {
-    const [userData, setUserData] = useState(undefined)
     const token = localStorage.getItem("token")
-    const userDataFromReducer = useSelector((state) => state.loginReducer.userData)
     const navigate = useNavigate()
     useEffect(() => {
       if(!token){
@@ -18,10 +16,6 @@ const IndexComponent = ({section, path}) => {
         navigate("/login")
       }
     },[token])
-
-    useEffect(()=> {
-        userDataFromReducer ? setUserData(userDataFromReducer) : null
-    },[userDataFromReducer])
     return (
     <div className='index-component'>
       {
@@ -30,15 +24,21 @@ const IndexComponent = ({section, path}) => {
             <> 
                 <HeaderComponent/>
                 {
-                  section === "index" ?
+                  section === "index" && path !== "user" ?
                   (
                     <InfoComponent/>
                   )
                   :
                   (
-                    section === "profile" && path !== "favouriteLists" ?
+                    path === "user" ? 
                     (
-                      <ProfileInfoComponent userData={userData}/>
+                      <ProfileInfoComponent  path={"user"} section={"index"} />
+                    )
+                    :
+                    (
+                      section === "profile" && path !== "favouriteLists" ?
+                    (
+                      <ProfileInfoComponent section={"profile"} path={"favouriteLists"}/>
                     )
                     :
                     (
@@ -47,6 +47,8 @@ const IndexComponent = ({section, path}) => {
                         <FavouriteListComponent/>
                       )
                     )
+                    )
+                    
                   )
                 }
             </>
