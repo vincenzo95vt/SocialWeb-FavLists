@@ -84,4 +84,59 @@
         color: red;
     }
 }
+/* .header .container-opt .profile-opt{
+    position: absolute;
+    color: black;
+    background-color: white;
+    top: 15vh;
+    right: 0.75vw ;
+    margin: 0;
+    ul{
+        list-style-type: none;
+        li{
+
+        }
+    }
+} */
+.profile-opt {
+    position: absolute; 
+    top: 11.4vh; 
+    right: 1.25vw; 
+    background-color: white; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 10px; 
+    z-index: 1000; 
+    width: 200px; 
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    opacity: 0; 
+    transform: translateY(-10px);
+}
+
+.profile-opt.show {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.profile-opt.hidden {
+    display: none; 
+}
+
+.profile-opt ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.profile-opt li {
+    padding: 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    color: black;
+}
+
+.profile-opt li:hover {
+    background-color: #f0f0f0; 
+}
 

@@ -39,6 +39,33 @@
     flex-direction: row;
     align-items: center;
     margin-bottom: 1rem;
+    width: 50%;
+    justify-content: space-between;
+}
+.card-component .userPoster-.userPoster-info-container .follow{
+    color: rgb(0, 123, 255); /* Color para el estado "No siguiendo" */
+    background-color: #fff;
+    border: 1px solid rgb(0, 123, 255);
+}
+
+.card-component .userPoster-.userPoster-info-container .following {
+    color: rgb(122, 117, 117); /* Color para el estado "Siguiendo" */
+    background-color: #f0f0f0;
+    border: 1px solid rgb(122, 117, 117);
+}
+
+.card-component .userPoster-.userPoster-info-container button {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card-component .userPoster-info-container .img-span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .card-component .userPoster-info-container img {

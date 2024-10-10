@@ -43,7 +43,7 @@ const ProfileInfoComponent = ({section, path}) => {
         }else if(section === "profile" && path === "favouriteLists"){
             setUserInfo(dataParsed)
         }
-    }, [userInfo])
+    }, [section, path])
     console.log(userFoundFromReducer)
     return (
     <div className='profile-user-card'>

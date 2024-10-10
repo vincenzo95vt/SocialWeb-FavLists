@@ -7,7 +7,7 @@ const UserPostComponent = ({userInfo}) => {
                     userInfo.posts.map((post, idx) => (
                         <div key={idx}>
                             <div className='post-container' onClick={() => console.log(post)}>
-                                <img src={post.postPath} alt="" />
+                                <img src={post.postPath || post.post} alt="" />
                                 <span>{post.postName}</span>
                             </div>
                         </div>
