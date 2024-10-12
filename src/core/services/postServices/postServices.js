@@ -113,3 +113,25 @@ export const getPostsLists  = async (postId) => {
 
     }
 }
+
+export const deletePost = async (postId) => {
+    try {
+        const token = localStorage.getItem("token")
+        const url = `http://localhost:4400/posts/${postId}`
+        const response = await fetch(url, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+            }
+        })
+        if(response.status === 400){
+            throw new Error("Error deleting post")
+        }else if(response.status === 200){
+            const data = await response.json()
+            return data
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}
