@@ -8,10 +8,12 @@
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: #333;
+    
 }
 
 .profile-user-card .imgprofile-names-info {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
@@ -136,6 +138,25 @@
     margin-top: 2rem;
 }
 
+.profile-user-card .private-zone{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    span{
+        font-size: 1.5rem;
+        color: gray;
+        font-style: oblique;
+    }
+    .chain{
+        width: 10rem;
+        position: relative;
+        fill: gray;
+        height: auto;
+        top: 2rem;
+        align-self: center;
+    }
+}
 .user-posts-container .post-container {
     display: flex;
     flex-direction: column;
@@ -159,4 +180,13 @@
     font-weight: 500;
     color: rgb(17, 15, 15);
     text-align: center;
+}
+.container-edit-prof{
+    display: flex;
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
 }

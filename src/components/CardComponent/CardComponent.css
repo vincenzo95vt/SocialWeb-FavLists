@@ -40,28 +40,44 @@
     width: 1.5vw;
     height: auto;
 }
-.card-component .container-wt-opt-img-info .userPoster-info-container .options{
-    width: 1vw;
-    height: auto;
-    align-self: center;
-    cursor: pointer;
+.card-component .container-wt-opt-img-info .userPoster-info-container .opt-remove{
+    display: flex;
+    flex-direction: column;
+    align-self: self-start;
+    position: relative;
 }
-.remove-post{
+.remove-post.hidden{
     position: absolute;
-    top: 210.95rem;
-    right: 12.5rem;
+    opacity: 0;
+    right: 2.5rem;
     width: fit-content;
     padding: 0.5rem;
     border-radius: 10px;
     background-color: white;
-    z-index: 0;
+    span{
+        color: black;
+    }
+}
+.remove-post.show{
+    position: absolute;
+    opacity: 1;
+    top:-0.5rem;
+    right: -9.1rem;
+    width: 7vw;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: white;
+    transition: opacity 0.3s ease;
+    span{
+        color: black;
+    }
 }
 .card-component .container-wt-opt-img-info .userPoster-info-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 1rem;
-    width: 50%;
+    width: 100%;
     justify-content: space-between;
 }
 .card-component .userPoster-info-container.follow{

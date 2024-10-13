@@ -7,6 +7,7 @@ import { showDataUserFound } from '../HeaderComponent/UserFoundAction'
 import { setLoading } from '../IndexComponent/InfoAction'
 import { findUserByName, followUser } from '../../core/services/userServices/userServices'
 import { useNavigate } from 'react-router-dom'
+import { deletePost } from '../../core/services/postServices/postServices'
 
 const CardComponent = ({post, fetchData}) => {
     const [showMoreComments, setShowMoreComments] = useState(false)
@@ -37,6 +38,11 @@ const CardComponent = ({post, fetchData}) => {
         await followUser(userId)
       }
 
+      const handleDeletePost = async (postId) => {
+        await deletePost(postId)
+        fetchData()
+      }
+
       useEffect(() => {
         if(userDataParsed.following.includes(post.userPoster._id)){
             setFollowing(true)
@@ -64,23 +70,19 @@ const CardComponent = ({post, fetchData}) => {
                             null
                         )
                     }                    
+                    {
+                            opt &&
+                            (
+                                <div className='opt-remove'>
+                                    <svg className="options" onClick={() => {!removePostOpt ? setRemovePostOpt(true) : setRemovePostOpt(false)}} xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><circle cx="12" cy="2" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="22" r="2"/></svg>    
+                                    <div className={`remove-post ${removePostOpt ? "show" : "hidden"}`} onClick={() => handleDeletePost(post._id || post.userId)}>
+                                            <span>Remove post</span>
+                                    </div>
+                                </div>
+                                
+                            )
+                    }
                 </div>
-                {
-                        opt &&
-                        (
-                            <div>
-                                <svg className="options" onClick={() => {!removePostOpt ? setRemovePostOpt(true) : setRemovePostOpt(false)}} xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><circle cx="12" cy="2" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="22" r="2"/></svg>
-                            </div>
-                        )
-                }
-                {
-                    removePostOpt &&
-                    (
-                        <div className='remove-post'>
-                                <span>Remove post</span>
-                        </div>
-                    )
-                }
             </div>
             
             <div className='img-and-name-container'>

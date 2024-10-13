@@ -129,6 +129,7 @@ export const deletePost = async (postId) => {
             throw new Error("Error deleting post")
         }else if(response.status === 200){
             const data = await response.json()
+            console.log(data)
             return data
         }
     } catch (error) {
