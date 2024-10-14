@@ -8,9 +8,11 @@ import ProfileInfoComponent from '../ProfileInfoComponent/ProfileInfoComponent'
 import FavouriteListComponent from '../ProfileInfoComponent/FavouriteListComponent/FavouriteListComponent'
 import { jwtDecode } from 'jwt-decode'
 import { handleExpiredToken } from '../../core/services/utils'
+import { showFollowRequests } from '../../core/services/userServices/userServices'
 
 const IndexComponent = ({section, path}) => {
     const [token, setToken] =useState(localStorage.getItem("token"))
+    const [followRequests, setFollowRequests] = useState(undefined)
     const navigate = useNavigate()
     
     const isTokenValid = (token) => {
@@ -35,13 +37,20 @@ const IndexComponent = ({section, path}) => {
       localStorage.removeItem("token")
       setToken(null)
     }
+    useEffect(() => {
+     const fetchFollowRequests = async () => {
+        const data = await showFollowRequests()
+        setFollowRequests(data.followRequests)
+      }
+      fetchFollowRequests()
+    }, [])
     return (
     <div className='index-component'>
       {
         token ? 
         (
             <> 
-                <HeaderComponent logoutFunction={logoutFunction}/>
+                <HeaderComponent followRequests={followRequests} logoutFunction={logoutFunction}/>
                 {
                   section === "index" ?
                   (

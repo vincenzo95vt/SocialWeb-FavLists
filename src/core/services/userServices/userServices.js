@@ -226,3 +226,51 @@ export const followUser = async (userId) => {
     }
 }
 
+
+export const requestFollowUser = async (userId) => {
+    try {
+        const token = localStorage.getItem("token")
+        const url = `http://localhost:4400/followRequests/${userId}`
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+            }
+        })
+        if(response.status === 400){
+            const data = await response.json()
+            console.log(data)
+        }else if(response.status === 200){
+            const data = await response.json()
+            return data
+        }
+    } catch (error) {
+        console.error(error)
+
+    }
+}
+
+
+export const showFollowRequests = async () => {
+    try {
+       const token = localStorage.getItem("token")
+       const url = `http://localhost:4400/followRequests/`
+       const response = await fetch(url,{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "auth-token": token
+            }
+       })
+       if(response.status === 400){
+        const data = await response.json()
+        console.log(data)
+       }else if(response.status === 200){
+        const data = await response.json()
+        return data
+       }
+    } catch (error) {
+        console.error(error)
+    }
+}
