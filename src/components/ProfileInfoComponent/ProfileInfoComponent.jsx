@@ -47,11 +47,21 @@ const ProfileInfoComponent = ({ section, path }) => {
     console.log(userInfo)
     return (
         <div className='profile-user-card'>
-            {userInfo.privacy === "private" ? (
-                <PrivateProfileComponent userInfo={userInfo} />
-            ) : (
-                <PublicProfileComponent userInfo={userInfo} showListPosts={showListPosts} />
-            )}
+            {
+                section === "profile" ?
+                (
+                    <PublicProfileComponent path={"profile"} userInfo={userInfo} showListPosts={showListPosts} />
+                )
+                :
+                (
+                    userInfo.privacy === "private" ? (
+                        <PrivateProfileComponent userInfo={userInfo} />
+                    ) : (
+                        <PublicProfileComponent userInfo={userInfo} showListPosts={showListPosts} />
+                    )
+                )
+            }
+            
         </div>
     );
 };

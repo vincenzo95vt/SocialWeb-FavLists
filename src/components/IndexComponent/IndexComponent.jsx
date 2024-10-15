@@ -40,7 +40,11 @@ const IndexComponent = ({section, path}) => {
     useEffect(() => {
      const fetchFollowRequests = async () => {
         const data = await showFollowRequests()
-        setFollowRequests(data.followRequests)
+        if(data.message === "No follow requests found"){
+          setFollowRequests(undefined)
+        }else{
+          setFollowRequests(data.followRequests)
+        }
       }
       fetchFollowRequests()
     }, [])
