@@ -36,7 +36,7 @@ const ProfileInfoComponent = ({ section, path }) => {
     useEffect(() => {
         if (section === "index" && path === "user") {
             setUserInfo(userFoundFromReducer);
-        } else if (section === "profile" && path === "favouriteLists") {
+        } else if (section === "profile" || section === "profile" && path === "favouriteLists") {
             setUserInfo(dataParsed);
         }
     }, [section, path]);
@@ -44,13 +44,13 @@ const ProfileInfoComponent = ({ section, path }) => {
     if (!userInfo) {
         return <div><span>No data to show</span></div>;
     }
-    console.log(userInfo)
+    console.log(path, section)
     return (
         <div className='profile-user-card'>
             {
                 section === "profile" ?
                 (
-                    <PublicProfileComponent path={"profile"} userInfo={userInfo} showListPosts={showListPosts} />
+                    <PublicProfileComponent section={"profile"} path={path} userInfo={userInfo} showListPosts={showListPosts} />
                 )
                 :
                 (

@@ -9,6 +9,7 @@ import FavouriteListComponent from '../ProfileInfoComponent/FavouriteListCompone
 import { jwtDecode } from 'jwt-decode'
 import { handleExpiredToken } from '../../core/services/utils'
 import { showFollowRequests } from '../../core/services/userServices/userServices'
+import UpdateProfileComponent from '../UpdateProfileComponent/UpdateProfileComponent'
 
 const IndexComponent = ({section, path}) => {
     const [token, setToken] =useState(localStorage.getItem("token"))
@@ -48,6 +49,7 @@ const IndexComponent = ({section, path}) => {
       }
       fetchFollowRequests()
     }, [])
+  console.log(path)
     return (
     <div className='index-component'>
       {
@@ -69,18 +71,22 @@ const IndexComponent = ({section, path}) => {
                   )
                   :
                   (
-                    section === "profile"  &&
-                    (
-                      path !== "favouriteLists" ?
+                    section === "profile" &&
                       (
-                        <ProfileInfoComponent section={"profile"} path={"favouriteLists"}/>
+                        path === "favouriteLists" ? 
+                        (
+                          <FavouriteListComponent/>
+                        )
+                        :
+                        path === "update-prof" ? 
+                        (
+                          <UpdateProfileComponent/>
+                        )
+                        :
+                        (
+                          <ProfileInfoComponent section={"profile"} path={path}/>
+                        )
                       )
-                      :
-                      (
-                        <FavouriteListComponent/>
-                      )
-                    )                   
-                    
                   )
                 }
             </>
