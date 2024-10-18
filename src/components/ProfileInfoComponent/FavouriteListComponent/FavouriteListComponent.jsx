@@ -8,11 +8,13 @@ const FavouriteListComponent = () => {
     const postsFromList = useSelector((state) => state.profileInfoReducer.favouritePosts)
     const listData = useSelector((state) => state.profileInfoReducer.listData)
     useEffect(() => {
+        console.log(info)
         setInfo(postsFromList)
     }, [])
+    console.log(listData)
   return (
     <div className='favourite-list-component'>
-        <h1 className='sentence-list'>List of {listData}</h1>
+        <h1 className='sentence-list'>List of {listData.name}</h1>
         {
             info ? 
             (

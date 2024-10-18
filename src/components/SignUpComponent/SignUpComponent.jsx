@@ -19,15 +19,17 @@ const SignUpComponent = () => {
     age: undefined,
     password: undefined,
     genre: undefined,
+    privacy:undefined,
   }
   let userSchema = object({
-    userName: string().required("Username is required"),
+    userName: string().required("Username is required").matches(/^\S*$/, 'UserName cannot contain spaces'),
     email: string().email().required("Email is necessary to log on this website"),
     name: string().required("Tell us your name"),
     lastName: string().required("Tell us your last name"),
-    age: number().required().min(18, "La edad minima debe ser 18 años"),
-    password: string().required().min(9, "La contraseña debe ser de mas de 9 caracteres"),
+    age: number().required().min(18, "Minimum age must be 18").max(100, "Your age cannot exceed over 100 years"),
+    password: string().required().min(9, "Your password must contain at least 9 characters"),
     genre: string().required(),
+    privacy: string().required()
   })
   return (
     <div className='signup-container'>
@@ -99,6 +101,13 @@ const SignUpComponent = () => {
                   <option value="Female">Female</option>
                 </Field>
                 {errors.genre && <div className='container-error'><span>{errors.genre}</span></div>}
+              </div>
+              <div className="container-privacy">
+                <Field as="select" placeholder="Privacy" className="input select" type="privacy" name=""privacy>
+                  <option value="">Select Privacy</option>
+                  <option value="private">Private</option>
+                  <option value="public">Public</option>
+                </Field>
               </div>
               <button type='submit'>Next Step</button>
             </Form>

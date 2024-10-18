@@ -274,3 +274,28 @@ export const showFollowRequests = async () => {
         console.error(error)
     }
 }
+
+export const updateUserData = async (values) => {
+    try {
+        const token = localStorage.getItem("token");
+        const url = `http://localhost:4400/users/`
+        const response = await fetch(url, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+                },
+                body: JSON.stringify(values)
+        })
+        if(response.status === 400){
+            const data = await response.json()
+            console.log(data)
+        }else if(response.status === 200){
+            const data = await response.json()
+            console.log(data)
+            const userData = localStorage.setItem("userData",JSON.stringify(data.data))
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}

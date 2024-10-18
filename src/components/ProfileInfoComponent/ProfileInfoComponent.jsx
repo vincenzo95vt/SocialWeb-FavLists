@@ -19,10 +19,14 @@ const ProfileInfoComponent = ({ section, path }) => {
 
     const showListPosts = async (list) => {
         try {
+            console.log(list)
+
             dispatch(setLoading(true));
             const data = await Promise.all(
                 list.favouritePosts.map(id => getPostsLists(id))
+
             );
+            console.log(data)
             dispatch(showFavouritePosts(data));
             dispatch(showListData(list));
             navigate(`/profile/favouriteList/${list._id}`);
@@ -55,7 +59,7 @@ const ProfileInfoComponent = ({ section, path }) => {
                 :
                 (
                     userInfo.privacy === "private" ? (
-                        <PrivateProfileComponent userInfo={userInfo} />
+                        <PrivateProfileComponent userInfo={userInfo} showListPosts={showListPosts} />
                     ) : (
                         <PublicProfileComponent userInfo={userInfo} showListPosts={showListPosts} />
                     )

@@ -102,7 +102,8 @@ export const getPostsLists  = async (postId) => {
                 }
         })
         if(response.status === 400){
-            throw new Error("Error fetching post")
+            const data = await response.json()
+            console.log(data)
         }else if(response.status === 200){
             const data = await response.json()
             console.log(data)

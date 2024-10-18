@@ -2,7 +2,11 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { object, string } from 'yup'
 import "./UpdateProfileComponent.css"
+import { updateUserData } from '../../core/services/userServices/userServices'
+import { useNavigate } from 'react-router-dom'
 const UpdateProfileComponent = ({path}) => {
+    
+    const navigate = useNavigate()
     let initialValues ={
         name: undefined,
         lastName: undefined,
@@ -22,9 +26,10 @@ const UpdateProfileComponent = ({path}) => {
         <Formik
             initialValues={initialValues}
             validationSchema={validatonSchema}
-            onSubmit={(values)=> {
-                //ME HE QUEDADO AQUI, HAY QUE HACER UN ENDPOINT DESDE EL BACK PARA MANEJAR LA ACTUALIZACION DE DATOS DEL USUARIO
+            onSubmit={async (values)=> {
                 console.log(values)
+                await updateUserData(values)
+                navigate("/profile")        
             }}>
                 {
                 ({errors, values}) => (
