@@ -129,7 +129,7 @@
     position: absolute;
     background: white;
     top: 11.4vh; 
-    right: -13.75vw; 
+    right: -17.75vw; 
     border: 1px solid #ccc; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -149,5 +149,38 @@
 }
 
 .notifications-container.hidden{
-    right: -13.75vw; 
+    right: -30.75vw; 
+}
+.notifications-container .requester-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 23vw;
+    img{
+        width: 3.5rem;
+        height: auto;
+    }
+}
+.notifications-container .requester-info .name-and-action{
+    display: flex;
+    width: 12vw;
+    flex-direction: column;
+    .name{
+        font-weight: bold;
+        font-size: 1.25rem;
+        color: black;
+    }
+    span{
+        font-weight: normal;
+        font-style: oblique;
+        color: gray;
+        font-size: 1rem;
+    }
+}
+.notifications-container .requester-info .buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 8vh;
 }

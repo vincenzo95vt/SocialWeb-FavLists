@@ -8,7 +8,7 @@ import ProfileInfoComponent from '../ProfileInfoComponent/ProfileInfoComponent'
 import FavouriteListComponent from '../ProfileInfoComponent/FavouriteListComponent/FavouriteListComponent'
 import { jwtDecode } from 'jwt-decode'
 import { handleExpiredToken } from '../../core/services/utils'
-import { showFollowRequests } from '../../core/services/userServices/userServices'
+import { showFollowRequests } from '../../core/services/followRequestServices/followRequestServices'
 import UpdateProfileComponent from '../UpdateProfileComponent/UpdateProfileComponent'
 
 const IndexComponent = ({section, path}) => {
@@ -41,6 +41,7 @@ const IndexComponent = ({section, path}) => {
     useEffect(() => {
      const fetchFollowRequests = async () => {
         const data = await showFollowRequests()
+        console.log("fetfollowrequest",data)
         if(data.message === "No follow requests found"){
           setFollowRequests(undefined)
         }else{

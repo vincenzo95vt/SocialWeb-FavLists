@@ -1,9 +1,14 @@
-import React from 'react';
-import { followUser, requestFollowUser } from '../../../core/services/userServices/userServices';
+import React, { useState } from 'react';
+import { requestFollowUser } from '../../../core/services/followRequestServices/followRequestServices';
 
 const PrivateProfileComponent = ({ userInfo }) => {
+    const [status, setStatus] = useState(undefined)
     const handleFollowUser = async (userId) => {
        const data = await requestFollowUser(userId)
+       console.log(data.status)
+       if(data.status === "pending"){
+        setStatus("pending")
+       }
        console.log(data)
       }
     
@@ -28,7 +33,7 @@ const PrivateProfileComponent = ({ userInfo }) => {
                     </div>
                 </div>
                 <div className='container-btn-follow'>
-                    <button onClick={() => handleFollowUser(userInfo._id || userInfo.userId)} className='btn-follow'>Follow</button>
+                    <button onClick={() => handleFollowUser(userInfo._id || userInfo.userId)} className='btn-follow'>{status === "pending" ? "Pending" : "Follow" }</button>
                 </div>
             </div>
             <div className='private-zone'>

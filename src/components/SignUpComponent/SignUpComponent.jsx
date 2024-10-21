@@ -103,11 +103,12 @@ const SignUpComponent = () => {
                 {errors.genre && <div className='container-error'><span>{errors.genre}</span></div>}
               </div>
               <div className="container-privacy">
-                <Field as="select" placeholder="Privacy" className="input select" type="privacy" name=""privacy>
+                <Field as="select" placeholder="Privacy" className="input select" type="privacy" name="privacy">
                   <option value="">Select Privacy</option>
                   <option value="private">Private</option>
                   <option value="public">Public</option>
                 </Field>
+                {errors.privacy && <div className='container-error'><span>{errors.privacy}</span></div>}
               </div>
               <button type='submit'>Next Step</button>
             </Form>

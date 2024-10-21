@@ -3,7 +3,7 @@ import { handleExpiredToken } from "../utils"
 export const signUpUser = async (values) => {
     try {
         const bodyValues = {
-            username: values.userName,
+            userName: values.userName,
             email: values.email,
             password: values.password,
             age: values.age,
@@ -11,6 +11,7 @@ export const signUpUser = async (values) => {
             lastName: values.lastName,
             genre: values.genre
         }
+        console.log(bodyValues)
         const url = `http://localhost:4400/users/signup`
         const response = await fetch(url, {
         method:"POST",
@@ -199,82 +200,6 @@ export const findUserByName = async (name) => {
     }
 }
 
-export const followUser = async (userId) => {
-    try {
-        console.log(userId)
-        const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/users/followUser/${userId}`
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "auth-token": token
-            }
-        })
-        if(response.status === 400){
-            const data = await response.json()
-            console.log(data)
-            return data
-        }else if(response.status === 200){
-            const data = await response.json()
-            localStorage.removeItem("userData")
-            localStorage.setItem("userData", JSON.stringify(data.data))
-            return data
-        }
-    } catch (error) {
-        console.error(error)
-    }
-}
-
-
-export const requestFollowUser = async (userId) => {
-    try {
-        const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/followRequests/${userId}`
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "auth-token": token
-            }
-        })
-        if(response.status === 400){
-            const data = await response.json()
-            console.log(data)
-        }else if(response.status === 200){
-            const data = await response.json()
-            return data
-        }
-    } catch (error) {
-        console.error(error)
-
-    }
-}
-
-
-export const showFollowRequests = async () => {
-    try {
-       const token = localStorage.getItem("token")
-       const url = `http://localhost:4400/followRequests/`
-       const response = await fetch(url,{
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "auth-token": token
-            }
-       })
-       if(response.status === 400){
-        const data = await response.json()
-        console.log(data)
-       }else if(response.status === 200){
-        const data = await response.json()
-        return data
-       }
-    } catch (error) {
-        console.error(error)
-    }
-}
-
 export const updateUserData = async (values) => {
     try {
         const token = localStorage.getItem("token");
@@ -299,3 +224,4 @@ export const updateUserData = async (values) => {
         console.error(error)
     }
 }
+
