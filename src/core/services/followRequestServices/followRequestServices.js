@@ -17,8 +17,9 @@ export const followUser = async (userId) => {
         }else if(response.status === 200){
             const data = await response.json()
             localStorage.removeItem("userData")
+            console.log(data)
             localStorage.setItem("userData", JSON.stringify(data.data))
-            return data
+            return data.message
         }
     } catch (error) {
         console.error(error)

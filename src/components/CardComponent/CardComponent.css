@@ -80,15 +80,10 @@
     width: 100%;
     justify-content: space-between;
 }
-.card-component .userPoster-info-container.follow{
-    color: rgb(0, 123, 255); /* Color para el estado "No siguiendo" */
-    background-color: #fff;
-    border: 1px solid rgb(0, 123, 255);
-}
 
-.card-component .userPoster-.userPoster-info-container.following {
-    color: rgb(122, 117, 117); /* Color para el estado "Siguiendo" */
-    background-color: #f0f0f0;
+.following {
+    color: rgb(246, 238, 238); /* Color para el estado "Siguiendo" */
+    background-color: #9e9b9b;
     border: 1px solid rgb(122, 117, 117);
 }
 

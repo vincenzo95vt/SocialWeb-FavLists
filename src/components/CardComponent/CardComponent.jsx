@@ -36,7 +36,10 @@ const CardComponent = ({post, fetchData}) => {
       }
 
       const handleFollowUser = async (userId) => {
-        await followUser(userId)
+        const message = await followUser(userId)
+        if(message === "User followed successfully"){
+            setFollowing(true)
+        }
       }
 
       const handleDeletePost = async (postId) => {
@@ -52,7 +55,6 @@ const CardComponent = ({post, fetchData}) => {
             setOpt(true)
         }
       },[])
-      console.log(userDataParsed)
     return (
         <div className='card-component'>
             <div className='container-wt-opt-img-info'>

@@ -7,9 +7,11 @@ import { setLoading } from '../IndexComponent/InfoAction';
 import { useNavigate } from 'react-router-dom';
 import PublicProfileComponent from './PublicProfileComponent/PublicProfileComponent';
 import PrivateProfileComponent from './PrivateProfileComponent/PrivateProfileComponent';
+import { refreshUserData } from '../../core/services/userServices/userServices';
 
 const ProfileInfoComponent = ({ section, path }) => {
     const [userInfo, setUserInfo] = useState(undefined);
+
     const data = localStorage.getItem("userData");
     const dataParsed = JSON.parse(data);
 
@@ -38,17 +40,18 @@ const ProfileInfoComponent = ({ section, path }) => {
     };
 
     useEffect(() => {
+        
         if (section === "index" && path === "user") {
             setUserInfo(userFoundFromReducer);
         } else if (section === "profile" || section === "profile" && path === "favouriteLists") {
+            refreshUserData()
             setUserInfo(dataParsed);
         }
-    }, [section, path]);
+    }, [section, path, userFoundFromReducer]);
 
     if (!userInfo) {
         return <div><span>No data to show</span></div>;
     }
-    console.log(path, section)
     return (
         <div className='profile-user-card'>
             {

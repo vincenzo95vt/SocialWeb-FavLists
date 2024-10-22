@@ -12,8 +12,9 @@ import { showFollowRequests } from '../../core/services/followRequestServices/fo
 import UpdateProfileComponent from '../UpdateProfileComponent/UpdateProfileComponent'
 
 const IndexComponent = ({section, path}) => {
-    const [token, setToken] =useState(localStorage.getItem("token"))
+    const [token, setToken] = useState(localStorage.getItem("token"))
     const [followRequests, setFollowRequests] = useState(undefined)
+    const [reloadFollowRequest, setReloadFollowRequest] = useState(false)
     const navigate = useNavigate()
     
     const isTokenValid = (token) => {
@@ -26,6 +27,7 @@ const IndexComponent = ({section, path}) => {
       }
     }
 
+    
     useEffect(() => {
       if(!token){
         navigate("/login")
@@ -43,21 +45,24 @@ const IndexComponent = ({section, path}) => {
         const data = await showFollowRequests()
         console.log("fetfollowrequest",data)
         if(data.message === "No follow requests found"){
-          setFollowRequests(undefined)
+          setFollowRequests(data.message)
         }else{
           setFollowRequests(data.followRequests)
         }
       }
       fetchFollowRequests()
-    }, [])
-  console.log(path)
+    }, [reloadFollowRequest])
+
+    const reloadData =  () => {
+      setReloadFollowRequest(prev => !prev)
+    }
     return (
     <div className='index-component'>
       {
         token ? 
         (
             <> 
-                <HeaderComponent followRequests={followRequests} logoutFunction={logoutFunction}/>
+                <HeaderComponent reloadData={reloadData} followRequests={followRequests} logoutFunction={logoutFunction}/>
                 {
                   section === "index" ?
                   (

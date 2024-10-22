@@ -20,11 +20,11 @@ const PublicProfileComponent = ({ userInfo, showListPosts, section }) => {
                             <span className='userName'>{userInfo.userName}</span>
                         </div>
                         <div className='follows-container'>
-                            <div className='followers'>
+                            <div className='cont-followers'>
                                 <span className='name-info'>Followers</span>
                                 <span className='info'>{userInfo.followers?.length || 0}</span>
                             </div>
-                            <div className='following'>
+                            <div className='cont-following'>
                                 <span className='name-info'>Following</span>
                                 <span className='info'>{userInfo.following?.length || 0}</span>
                             </div>
@@ -75,11 +75,11 @@ const PublicProfileComponent = ({ userInfo, showListPosts, section }) => {
                             <span className='userName'>{userInfo.userName}</span>
                         </div>
                         <div className='follows-container'>
-                            <div className='followers'>
+                            <div className='cont-followers'>
                                 <span className='name-info'>Followers</span>
                                 <span className='info'>{userInfo.followers?.length || 0}</span>
                             </div>
-                            <div className='following'>
+                            <div className='cont-following'>
                                 <span className='name-info'>Following</span>
                                 <span className='info'>{userInfo.following?.length || 0}</span>
                             </div>

@@ -24,7 +24,7 @@ const InfoComponent = () => {
         }finally{
             dispatch(setLoading(false))
         }
-      }
+    }
   useEffect(()=> {
       fetchData()
 }, [])
