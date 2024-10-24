@@ -1,8 +1,9 @@
-import { SHOW_FAVOURITE_POSTS, SHOW_LIST_DATA } from "./ProfileInfoAction"
+import { SHOW_FAVOURITE_POSTS, SHOW_LIST_DATA, SHOW_USER_LIST } from "./ProfileInfoAction"
 
 const initialValues = {
     favouritePosts: undefined,
-    listData: undefined
+    listData: undefined,
+    listUser: undefined
 }
 
 const profileInfoReducer = (state = initialValues, action) => {
@@ -16,6 +17,11 @@ const profileInfoReducer = (state = initialValues, action) => {
             return{
                 ...state,
                 listData: action.payload
+            }
+        case SHOW_USER_LIST:
+            return{
+                ...state,
+                listUser: action.payload
             }
         default:
             return state

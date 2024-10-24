@@ -10,11 +10,13 @@ import { jwtDecode } from 'jwt-decode'
 import { handleExpiredToken } from '../../core/services/utils'
 import { showFollowRequests } from '../../core/services/followRequestServices/followRequestServices'
 import UpdateProfileComponent from '../UpdateProfileComponent/UpdateProfileComponent'
+import UserListsComponent from '../UserListsComponent/UserListsComponent'
 
 const IndexComponent = ({section, path}) => {
     const [token, setToken] = useState(localStorage.getItem("token"))
     const [followRequests, setFollowRequests] = useState(undefined)
     const [reloadFollowRequest, setReloadFollowRequest] = useState(false)
+    const [usersList, setUsersList] = useState(undefined)
     const navigate = useNavigate()
     
     const isTokenValid = (token) => {
@@ -26,6 +28,10 @@ const IndexComponent = ({section, path}) => {
         return false
       }
     }
+    const listFollowerOrFollowing = useSelector((state)=> state.profileInfoReducer.listUser)
+    useEffect(() => {
+      setUsersList(listFollowerOrFollowing)
+    },[listFollowerOrFollowing])
 
     
     useEffect(() => {
@@ -90,7 +96,14 @@ const IndexComponent = ({section, path}) => {
                         )
                         :
                         (
-                          <ProfileInfoComponent section={"profile"} path={path}/>
+                          path === "following" ?
+                          (
+                            <UserListsComponent usersList={usersList}/>
+                          )
+                          :
+                          (
+                            <ProfileInfoComponent section={"profile"} path={path}/>
+                          )
                         )
                       )
                   )

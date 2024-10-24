@@ -11,10 +11,9 @@ import { refreshUserData } from '../../core/services/userServices/userServices';
 
 const ProfileInfoComponent = ({ section, path }) => {
     const [userInfo, setUserInfo] = useState(undefined);
-
+    const [isFollowingYou, setIsFollowingYou] = useState(false)
     const data = localStorage.getItem("userData");
     const dataParsed = JSON.parse(data);
-
     const userFoundFromReducer = useSelector((state) => state.userFoundReducer.userFound);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -26,7 +25,6 @@ const ProfileInfoComponent = ({ section, path }) => {
             dispatch(setLoading(true));
             const data = await Promise.all(
                 list.favouritePosts.map(id => getPostsLists(id))
-
             );
             console.log(data)
             dispatch(showFavouritePosts(data));
@@ -38,13 +36,25 @@ const ProfileInfoComponent = ({ section, path }) => {
             dispatch(setLoading(false));
         }
     };
-
+    
+    useEffect(()=> {
+        console.log(dataParsed)
+        if(dataParsed.followers.includes(userFoundFromReducer?.userId)){
+            setIsFollowingYou(true)
+        }else{
+            setIsFollowingYou(false)
+        }
+    },[])
     useEffect(() => {
-        
+        const data = localStorage.getItem("userData");
+        if (data) {
+            setUserInfo(JSON.parse(data));
+        }
+    }, [])
+    useEffect(() => {        
         if (section === "index" && path === "user") {
             setUserInfo(userFoundFromReducer);
         } else if (section === "profile" || section === "profile" && path === "favouriteLists") {
-            refreshUserData()
             setUserInfo(dataParsed);
         }
     }, [section, path, userFoundFromReducer]);
@@ -54,6 +64,7 @@ const ProfileInfoComponent = ({ section, path }) => {
     }
     return (
         <div className='profile-user-card'>
+            
             {
                 section === "profile" ?
                 (
@@ -62,9 +73,9 @@ const ProfileInfoComponent = ({ section, path }) => {
                 :
                 (
                     userInfo.privacy === "private" ? (
-                        <PrivateProfileComponent userInfo={userInfo} showListPosts={showListPosts} />
+                        <PrivateProfileComponent isFollowingYou={isFollowingYou} userInfo={userInfo} showListPosts={showListPosts} />
                     ) : (
-                        <PublicProfileComponent userInfo={userInfo} showListPosts={showListPosts} />
+                        <PublicProfileComponent isFollowingYou={isFollowingYou} userInfo={userInfo} showListPosts={showListPosts} />
                     )
                 )
             }

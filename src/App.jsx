@@ -22,6 +22,7 @@
                 <Route path='/profile' element={<IndexComponent section={"profile"} path={undefined}/>}/>
                 <Route path='/profile/favouriteList/:id' element={<IndexComponent section={"profile"} path={"favouriteLists"}/>}/>
                 <Route path='/profile/update-prof/:id' element={<IndexComponent section={"profile"} path={"update-prof"}/>}/>
+                <Route path='/profile/following' element={<IndexComponent section={"profile"} path={"following"}/>}/>
               </Routes>
             </BrowserRouter>
         </Provider>

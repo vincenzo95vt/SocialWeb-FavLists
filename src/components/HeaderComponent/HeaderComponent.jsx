@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { findUserByName } from '../../core/services/userServices/userServices'
 import { showDataUserFound } from './UserFoundAction'
 import { useDispatch } from 'react-redux'
-import { acceptFollowRequest } from '../../core/services/followRequestServices/followRequestServices'
+import { acceptFollowRequest, rejectFollowRequest } from '../../core/services/followRequestServices/followRequestServices'
 
 
 const HeaderComponent = ({logoutFunction, followRequests, reloadData}) => {
@@ -48,18 +48,22 @@ const HeaderComponent = ({logoutFunction, followRequests, reloadData}) => {
     setProfileOpt(false)
   }
 
-  const handleFollowRequest = async (fqId) => {
-    const data = await acceptFollowRequest(fqId)
-    console.log(data.data.info.status)
-    setFqInfo(data.data.info.status)
+  const handleFollowRequest = async (btnValue, fqId) => {
+    if(btnValue === "accept"){
+      const data = await acceptFollowRequest(fqId)
+      console.log(data.data.info.status)
+      setFqInfo(data.data.info.status)
+    }else if(btnValue === "reject"){
+      const data = await rejectFollowRequest(fqId)
+    }
   }
 
   useEffect(() => {
     if(fqInfo === "accepted" || fqInfo === "rejected"){
       reloadData()
-      
     }
   },[fqInfo])
+
   return (
     <div className='header'>
       <img src="/file.png" alt="" />
@@ -124,8 +128,8 @@ const HeaderComponent = ({logoutFunction, followRequests, reloadData}) => {
                       <span>has requested to follow you</span>
                     </div>
                     <div className='buttons'>
-                      <button onClick={() => handleFollowRequest(req._id)}>Accept</button>
-                      <button onClick={() => console.log(req._id)} style={{backgroundColor:"red", color:"white"}}>Reject</button>
+                      <button onClick={() => handleFollowRequest("accept", req._id)}>Accept</button>
+                      <button onClick={() => handleFollowRequest("reject", req._id)} style={{backgroundColor:"red", color:"white"}}>Reject</button>
                     </div>
                   </div>
                 )

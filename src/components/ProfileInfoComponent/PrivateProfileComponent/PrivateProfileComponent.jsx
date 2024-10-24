@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { requestFollowUser } from '../../../core/services/followRequestServices/followRequestServices';
 import UserPostComponent from '../UserPostComponent/UserPostComponent';
 
-const PrivateProfileComponent = ({ userInfo }) => {
+const PrivateProfileComponent = ({ userInfo, isFollowingYou }) => {
     const [status, setStatus] = useState(undefined)
     const userData = localStorage.getItem("userData")
     const [hidden, setHidden] = useState(true);
@@ -47,6 +47,14 @@ const PrivateProfileComponent = ({ userInfo }) => {
                             <button onClick={() => handleFollowUser(userInfo._id || userInfo.userId)} className='btn-follow'>{status === "pending" ? "Pending" : "Follow" }</button>
                         )
                     }
+                    <div className="is-following-cnt">
+                        {
+                            isFollowingYou &&
+                            (
+                                <span>Is following you</span>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
                 {

@@ -206,6 +206,10 @@
     position: absolute;
     right: 0rem;
     top: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 4rem;
     width: fit-content;
     .btn-follow{
         width: 6vw;
@@ -213,4 +217,11 @@
         font-size: 1.5rem;
         font-weight: bold;
     }
+}
+.container-btn-follow .is-following-cnt{
+    border-radius: 4%;
+    border: 1px solid;
+    padding: 0.25rem;
+    color: gray;
+    
 }

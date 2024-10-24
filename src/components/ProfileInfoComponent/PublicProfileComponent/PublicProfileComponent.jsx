@@ -1,10 +1,33 @@
 import React, { useState } from 'react';
 import UserPostComponent from '../UserPostComponent/UserPostComponent';
 import { useNavigate } from 'react-router-dom';
+import { followUser } from '../../../core/services/followRequestServices/followRequestServices';
+import { findUserById } from '../../../core/services/userServices/userServices';
+import { useDispatch } from 'react-redux';
+import { showUserList } from '../ProfileInfoAction';
 
-const PublicProfileComponent = ({ userInfo, showListPosts, section }) => {
+const PublicProfileComponent = ({ userInfo, showListPosts, section, isFollowingYou }) => {
     const [hidden, setHidden] = useState(true);
+    const userData = localStorage.getItem("userData")
+    const userDataParsed = JSON.parse(userData)
+
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const handleFollowUser = async (userId) => {
+        const message = await followUser(userId)
+        if(message === "User followed successfully"){
+            setFollowing(true)
+        }
+      }
+
+    const handleFindUsers = async (arrayIds) => {
+        const info = await Promise.all(
+            arrayIds.map(userId => findUserById(userId))
+        )
+        dispatch(showUserList(info))
+       navigate("/profile/following")
+    }
+
     return (
         <>
         {
@@ -24,7 +47,7 @@ const PublicProfileComponent = ({ userInfo, showListPosts, section }) => {
                                 <span className='name-info'>Followers</span>
                                 <span className='info'>{userInfo.followers?.length || 0}</span>
                             </div>
-                            <div className='cont-following'>
+                            <div className='cont-following' onClick={() => handleFindUsers(userInfo.following)}>
                                 <span className='name-info'>Following</span>
                                 <span className='info'>{userInfo.following?.length || 0}</span>
                             </div>
@@ -79,10 +102,31 @@ const PublicProfileComponent = ({ userInfo, showListPosts, section }) => {
                                 <span className='name-info'>Followers</span>
                                 <span className='info'>{userInfo.followers?.length || 0}</span>
                             </div>
-                            <div className='cont-following'>
+                            <div className='cont-following' onClick={() => handleFindUsers(userInfo.following)}>
                                 <span className='name-info'>Following</span>
                                 <span className='info'>{userInfo.following?.length || 0}</span>
                             </div>
+                        </div>
+                        <div className='container-btn-follow'>
+                            {
+                                userDataParsed.following.includes(userInfo._id || userInfo.userId) ?
+                                (
+                                    <button onClick={() => handleFollowUser(userInfo._id || userInfo.userId)} className='following'>Following</button>
+                                )
+                                :
+                                (
+                                    <button onClick={() => handleFollowUser(userInfo._id || userInfo.userId)} className='btn-follow'>{status === "pending" ? "Pending" : "Follow" }</button>
+                                )
+                            }
+                            {
+                                isFollowingYou && 
+                                (
+                                    <div className="is-following-cnt">
+                                        <span>Is following you</span>                                        
+                                    </div>
+
+                                )
+                            }
                         </div>
                     </div>
                     <div className='myLists-container'>

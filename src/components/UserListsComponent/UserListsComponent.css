@@ -1,0 +1,18 @@
+.userList-card{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+}
+
+.userList-card .cnt-info{
+    display: flex;
+    color: black;
+    width: 10rem;
+    img{
+        width: 10rem;
+        height: 100%;
+    }
+}
+
+/* ME QUEDO AQUI, HAY QUE ESTILAR LA CARTA DE LA LISTA DE USUARIOS. */

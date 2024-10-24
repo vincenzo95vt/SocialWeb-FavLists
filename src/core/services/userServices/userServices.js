@@ -42,7 +42,7 @@ export const loginUser = async (values) => {
         if(data.status === 401 ){
             console.log(data.status)
             return data
-        }else if(data.status === 200){
+        }else if(data.status === 200 && data.data && data.data.userData){
             console.log(data.data.userData)
             localStorage.setItem("token", data.data.token )
             localStorage.setItem("refresh_token", data.data.token_refresh )
@@ -219,6 +219,30 @@ export const updateUserData = async (values) => {
             const data = await response.json()
             console.log(data)
             const userData = localStorage.setItem("userData",JSON.stringify(data.data))
+        }
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const findUserById = async (id) => {
+    try {
+        const token = localStorage.getItem("token")
+        const url = `http://localhost:4400/users/${id}`
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+            }
+        })
+        if(response.status === 400){
+            const data = await response.json()
+            console.log(data)
+        }else if(response.status === 200){
+            const data = await response.json()
+            console.log(data)
+            return data.data
         }
     } catch (error) {
         console.error(error)
