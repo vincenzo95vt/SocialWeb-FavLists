@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./MainComponent.css"
+import ImagesComponent from './ImagesComponent/ImagesComponent'
 const MainComponent = () => {
   
   const navigate = useNavigate()
@@ -8,8 +9,13 @@ const MainComponent = () => {
 
   return (
     <div className='main-component'>
-      <span onClick={() => navigate("/login")} className='login'>Log in</span>
-      <span onClick={() => navigate("/signup")} className='signup'>Sign Up</span>
+      <div className='cnt-img-spans'>
+        <ImagesComponent/>
+        <div>
+          <span onClick={() => navigate("/login")} className='login'>Log in</span>
+          <span onClick={() => navigate("/signup")} className='signup'>Sign Up</span>
+        </div>
+      </div>
     </div>
   )
 }
