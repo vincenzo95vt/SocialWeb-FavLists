@@ -8,7 +8,7 @@
 }
 
 .login, .signup{
-    background-color:#05e20c;
+    background-color:var(--btn-primary-color);
     cursor: pointer;
     width: 5vw;
     height: 4vh;
@@ -17,9 +17,9 @@
     justify-content: center;
     border-radius: 6px;
     transition: 0.2s ease-in-out;
-    color: black;
+    color: var(--primary-color);
     font-weight: bold;
     &:hover{
-        background-color: #035510;
+        background-color: var(--btn-primary-color-hover);
     }
 }

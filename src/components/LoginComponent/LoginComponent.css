@@ -7,10 +7,10 @@
     background: #807f7e; /* Beige */
     box-shadow: inset 0px 0px 20px rgba(25, 236, 2, 0.5); /* Color cálido con opacidad */
     h1{
-        color: #023806;
+        color: var(--primary-color);
     }
 }
 
 .no-log-message, .success-log-message{
-    color: #4E342E;
+    color: var(--primary-color);
 }

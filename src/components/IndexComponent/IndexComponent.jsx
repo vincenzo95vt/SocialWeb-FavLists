@@ -11,6 +11,7 @@ import { handleExpiredToken } from '../../core/services/utils'
 import { showFollowRequests } from '../../core/services/followRequestServices/followRequestServices'
 import UpdateProfileComponent from '../UpdateProfileComponent/UpdateProfileComponent'
 import UserListsComponent from '../UserListsComponent/UserListsComponent'
+import CardComponent from '../CardComponent/CardComponent'
 
 const IndexComponent = ({section, path}) => {
     const [token, setToken] = useState(localStorage.getItem("token"))
@@ -19,6 +20,7 @@ const IndexComponent = ({section, path}) => {
     const [usersList, setUsersList] = useState(undefined)
     const navigate = useNavigate()
     
+    const postFromReducer = useSelector((state) => state.infoReducer.post)
     const isTokenValid = (token) => {
       try {
         const decodedToken = jwtDecode(token)
@@ -62,6 +64,7 @@ const IndexComponent = ({section, path}) => {
     const reloadData =  () => {
       setReloadFollowRequest(prev => !prev)
     }
+    console.log(postFromReducer)
     return (
     <div className='index-component'>
       {
@@ -98,11 +101,25 @@ const IndexComponent = ({section, path}) => {
                         (
                           path === "following" ?
                           (
-                            <UserListsComponent usersList={usersList}/>
+                            <UserListsComponent usersList={usersList} path={"Following"}/>
                           )
                           :
                           (
-                            <ProfileInfoComponent section={"profile"} path={path}/>
+                            path === "followers" ?
+                            (
+                              <UserListsComponent usersList={usersList} path={"Followers"}/>
+                            )
+                            :
+                            (
+                              path === "post" ?
+                              (
+                                <CardComponent postFromReducer={postFromReducer}/>
+                              )
+                              :
+                              (
+                                <ProfileInfoComponent section={"profile"} path={path}/>
+                              )
+                            )
                           )
                         )
                       )

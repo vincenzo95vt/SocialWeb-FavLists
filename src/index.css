@@ -8,12 +8,31 @@
 }
 
 :root {
+  --bg-color:#1a1a1d;
+  --primary-color: #a8a7a7; 
+  --txt-primary-color: #858484;
+  --secondary-color: #2e2e2e; 
+  --tertiary-color: #f6e9e9;
+  --temporary-color: #0d0d0d; 
+  --svg-primary-color: #e6e6e6; 
+  --btn-primary-color: #008f11; 
+  --btn-primary-color-hover: #005f08; 
+  --card-primary-color: #262626;
+  --following-color: #888686;
+  --following-bg-color: #333333;
+  --following-border-cnt-color: #606060;
+  --cnt-description-color: #a0a0a0;
+  --txt-description-color: #e0e0e0;
+  --success-msg-color: #27ae60;
+  --error-color: #d32f2f; 
+  --signup-h1-color: #e1e1e1;
+  --card-primary-color-hover: #3d3d3d; 
   font-family: "Outfit", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--temporary-color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -28,7 +47,7 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #3b3b3a, #070707); 
+  background: linear-gradient(135deg, var(--secondary-color), var(--bg-color)); 
    background-attachment: fixed; 
   background-size: cover;
   z-index: -1;
@@ -45,7 +64,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #05e20c;
+  background-color: var(--btn-primary-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }

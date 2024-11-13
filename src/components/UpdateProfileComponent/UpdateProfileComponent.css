@@ -2,18 +2,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f9f9f9;
+    background-color: var(--card-primary-color);
     width: 50rem;
     margin: 2rem auto;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333;
+    color: var(--temporary-color);
 }
 
 .update-container h1 {
     font-size: 2.5rem;
-    color: rgb(6, 6, 6);
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
 }
 
@@ -27,7 +27,7 @@
 .update-container label {
     font-size: 1.5rem;
     font-weight: bold;
-    color: rgb(17, 15, 15);
+    color: var(--primary-color);
 }
 
 .update-container .name, 
@@ -39,7 +39,7 @@
     font-size: 1.2rem;
     border-radius: 5px;
     border: 2px solid #ddd;
-    background-color: #fff;
+    background-color: var(--card-primary-color);
     color: #333;
     transition: border-color 0.3s ease;
 }
@@ -53,13 +53,13 @@
 .update-container .lastName:focus, 
 .update-container .userName:focus, 
 .update-container .description:focus {
-    border-color: #333;
+    border-color: var(--temporary-color);
     outline: none;
 }
 
 .update-container .count-words-left {
     font-size: 1rem;
-    color: #666;
+    color: var(--txt-description-color);
     margin-top: 0.5rem;
     text-align: right;
 }
@@ -70,8 +70,8 @@
     padding: 1rem 2rem;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #fff;
-    background-color: #05e20c;
+    color: var(--card-primary-color);
+    background-color: var(--btn-primary-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -80,5 +80,5 @@
 }
 
 .update-container button:hover {
-    background-color: #04b00b;
+    background-color: var(--btn-primary-color-hover);
 }

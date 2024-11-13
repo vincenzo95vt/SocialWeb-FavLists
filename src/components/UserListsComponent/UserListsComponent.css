@@ -1,18 +1,34 @@
 .userList-card{
-    background-color: white;
+    background-color: var(--card-primary-color);
     display: flex;
     flex-direction: column;
     width: 50rem;
+    border-radius: 3%;
+    padding: 2%;
+    h1{
+        color: black;
+        align-self: center;
+    }
 }
 
 .userList-card .cnt-info{
     display: flex;
-    color: black;
-    width: 10rem;
+    color: var(--primary-color);
+    align-items: center;
+    width: 23rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
     img{
         width: 10rem;
         height: 100%;
     }
 }
 
-/* ME QUEDO AQUI, HAY QUE ESTILAR LA CARTA DE LA LISTA DE USUARIOS. */
+.userList-card .cnt-info .cnt-name{
+    width: 12rem;
+    p{
+        font-size: 1.75rem;
+        font-weight: bold;
+    }
+}
+

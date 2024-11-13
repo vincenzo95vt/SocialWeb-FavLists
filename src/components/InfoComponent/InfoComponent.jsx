@@ -12,7 +12,6 @@ const InfoComponent = () => {
 
     const dispatch = useDispatch()
     const loadingFromReducer = useSelector((state) => state.infoReducer.isLoading)
-
     const fetchData = async () => {
         dispatch(setLoading(true))
         try {

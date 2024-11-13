@@ -7,7 +7,7 @@
     background: #807f7e;
     box-shadow: inset  0px 0px 20px rgba(25, 236, 2, 0.5); 
     h1{
-        color: #023806;
+        color: var(--signup-h1-color);
     }
 }
 
@@ -30,13 +30,13 @@
 .input {
     background: none;
     border: none;
-    border-bottom: 1px solid #8D8D8D; 
+    border-bottom: 1px solid var(--cnt-description-color); 
     display: flex;
     width: 100%; 
     padding: 0.5rem 0; 
-    color: black; 
+    color: var(--primary-color); 
     &::placeholder{
-        color: rgb(73, 72, 72);
+        color: var(--txt-description-color);
     }
     &:focus{
         outline: none;
@@ -44,37 +44,37 @@
 }
 
 .container-error {
-    color: #E27D60; 
+    color: var(--error-color); 
     font-size: 0.8rem; 
     margin-top: 0.5rem; 
 }
 
 .select {
     padding: 0.5rem; 
-    border: 1px solid #8D8D8D; 
+    border: 1px solid var(--following-bg-color); 
     border-radius: 5px; 
     width: 100%; 
     background: transparent; 
-    color: black; 
+    color: var(--primary-color); 
 }
 
 .select option {
     background: transparent; 
-    color: black; 
+    color: var(--primary-color); 
 }
 
 .success-message {
-    color: #2ECC71; 
+    color: var(--success-msg-color); 
     align-self: center;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
 }
 .phrase{
-    color: #4E342E;
+    color: var(--secondary-color);
 }
 .login-btn {
-    color: black; 
+    color: var(--primary-color); 
     cursor: pointer;
     font-weight: bold;
 }

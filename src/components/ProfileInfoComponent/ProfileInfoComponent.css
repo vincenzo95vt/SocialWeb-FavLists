@@ -1,15 +1,13 @@
-
 .profile-user-card {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 75rem;
-    background-color: #f9f9f9;
-    border-radius: 10px;
+    background-color: var(--card-primary-color);
+    border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333;
-    
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: var(--secondary-color);
 }
 
 .profile-user-card .imgprofile-names-info {
@@ -26,7 +24,8 @@
     height: 12rem;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ddd;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .profile-user-card .name-info {
@@ -35,44 +34,22 @@
     justify-content: center;
 }
 
-.profile-user-card .name-info .name-last-name {
-    display: flex;
-    align-items: center;
-}
-
 .profile-user-card .name-info .name-last-name span {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     font-weight: bold;
-    color: rgb(6, 6, 6);
+    color: var(--primary-color);
 }
 
-.profile-user-card .name-info .name-last-name svg {
-    width: 1.5rem;
-    height: auto;
-    margin-left: 1rem;
-    fill:#05e20c;
-}
-.profile-user-card .container-description{
-    display: flex;
-    width: 100%;
-    background-color: rgb(222, 216, 216);
-    box-shadow: inset 0px 0px 10px 1px gray;
-    border-radius: 4px;
-   span{
-        font-size: 1.5rem;
-        margin: 1rem;
-    }
-}
 .profile-user-card .userName {
-    font-size: 1.5rem;
-    color: #666;
+    font-size: 1.25rem;
+    color: var(--cnt-description-color);
     margin-top: 0.5rem;
 }
 
 .profile-user-card .follows-container {
     display: flex;
     justify-content: space-around;
-    width: 50%;
+    width: 30rem;
     align-items: center;
     margin: 0 2rem;
 }
@@ -81,147 +58,164 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 1.2rem;
-    color: rgb(11, 11, 11);
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-.cont-followers .info, .cont-following .info {
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: rgb(12, 12, 12);
+.follows-container .cont-followers:hover, .follows-container .cont-following:hover {
+    color: var(--btn-primary-color);
+}
+
+.profile-user-card .container-description {
+    background-color: var(--cnt-description-color);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .profile-user-card .myLists-container {
     margin-top: 1.5rem;
     display: flex;
-    width: 30%;
+    width: 50%; 
     justify-content: space-between;
     font-size: 1.3rem;
-    color: rgb(14, 13, 13);
+    color: var(--primary-color);
     margin-bottom: 1rem;
+    background-color: var(--card-primary-color);
+    padding: 1rem 2rem; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out; 
 }
-.profile-user-card .list-to-show{
+
+.profile-user-card .myLists-container:hover {
+    box-shadow: 0 16px 12px var(--bg-color); 
+}
+
+.profile-user-card .myLists-container .list-item {
     display: flex;
-    height: 3rem; 
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.profile-user-card .myLists-container .list-item:hover {
+    background-color: var(--primary-color); 
+    color: var(--card-primary-color); 
+    transform: scale(1.05);
+}
+
+.profile-user-card .myLists-container .list-item + .list-item {
+    margin-left: 1rem; 
+}
+.profile-user-card .list-to-show {
+    display: flex;
+    height: 3rem;
     width: fit-content;
+    margin: 1rem;
     gap: 1rem;
     justify-content: flex-start;
-    span{
-        font-size: 2rem;
-        width: fit-content;
-        font-weight: bold;
-    }
+    transition: height 0.5s ease;
 }
+
 .profile-user-card .list-to-show.hidden {
-    width: 100%;
     height: 0;
     overflow: hidden;
-    transition: height 0.5s ease;
 }
-.profile-user-card .list-to-show.flex{
+
+.profile-user-card .list-to-show.flex {
     height: 5rem;
-    width: 100%;
-    transition: height 0.5s ease;
     overflow: hidden;
     cursor: pointer;
 }
+
 .profile-user-card .list-to-show .container-name-list {
-    background-color: rgb(222, 216, 216);
-    padding: 2%;
-    height: 0.75rem; 
-    width: 5rem; 
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    height: fit-content;
     border-radius: 4px;
-    transition: height 0.5s ease, width 0.5s ease;
+    transition: font-size 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .profile-user-card .list-to-show .container-name-list:hover {
-    width: 8rem; 
-    height: 1.5rem; 
+    font-size: 1.50rem;
 }
 
-.profile-user-card .user-posts-container {
+.container-edit-prof {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-.profile-user-card .private-zone{
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 15rem;
-    span{
-        font-size: 1.5rem;
-        color: gray;
-        font-style: oblique;
-    }
-    .chain{
-        width: 10rem;
-        position: relative;
-        fill: gray;
-        height: auto;
-        top: 2rem;
-        align-self: center;
-    }
+.container-edit-prof:hover {
+    transform: scale(1.1);
 }
-.user-posts-container .post-container {
+
+.container-btn-follow .btn-follow {
+    width: 8rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 6px;
+    background-color: var(--btn-primary-color);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.container-btn-follow .btn-follow:hover {
+    background-color: var(--btn-primary-color-hover);
+}
+
+.container-btn-follow .is-following-cnt {
+    border-radius: 4px;
+    border: 1px solid var(--following-border-cnt-color);
+    padding: 0.25rem;
+    height: 1rem;
+    color: var(--primary-color);
+}
+
+.user-posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px; /* Espacio entre las publicaciones */
+    padding: 16px;
+}
+
+.post-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .post-container img {
-    width: 10rem;
-    height: 10rem;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
 }
 
 .post-container span {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: rgb(17, 15, 15);
+    margin-top: 8px;
+    font-size: 14px;
     text-align: center;
-}
-.container-edit-prof{
-    display: flex;
-    position: absolute;
-    right: 0rem;
-    top: 0rem;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-}
-.container-btn-follow{
-    position: absolute;
-    right: 0rem;
-    top: 0rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 4rem;
-    width: fit-content;
-    .btn-follow{
-        width: 6vw;
-        height: 6vh;
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-}
-.container-btn-follow .is-following-cnt{
-    border-radius: 4%;
-    border: 1px solid;
-    padding: 0.25rem;
-    color: gray;
-    
+    color: #333;
 }

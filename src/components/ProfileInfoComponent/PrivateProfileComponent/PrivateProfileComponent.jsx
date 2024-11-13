@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { requestFollowUser } from '../../../core/services/followRequestServices/followRequestServices';
 import UserPostComponent from '../UserPostComponent/UserPostComponent';
+import { findUserById } from '../../../core/services/userServices/userServices';
+import { showUserList } from '../ProfileInfoAction';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const PrivateProfileComponent = ({ userInfo, isFollowingYou }) => {
     const [status, setStatus] = useState(undefined)
@@ -15,6 +19,20 @@ const PrivateProfileComponent = ({ userInfo, isFollowingYou }) => {
        }
        console.log(data)
       }
+      const dispatch = useDispatch()
+      const navigate = useNavigate()
+      const handleFindUsers = async (arrayIds, followersOrFollowing) => {
+        const info = await Promise.all(
+            arrayIds.map(userId => findUserById(userId))
+        )
+        console.log(info)
+        dispatch(showUserList(info))
+        if(followersOrFollowing === "following"){
+            navigate("/profile/following")
+        }else if(followersOrFollowing === "followers"){
+            navigate("/profile/followers")
+        }
+    }
 
       return (
         <>
@@ -27,11 +45,11 @@ const PrivateProfileComponent = ({ userInfo, isFollowingYou }) => {
                     <span className='userName'>{userInfo.userName}</span>
                 </div>
                 <div className='follows-container'>
-                    <div className='cont-followers'>
+                    <div className='cont-followers'  onClick={() => handleFindUsers(userInfo.followers, "followers")}>
                         <span className='name-info'>Followers</span>
                         <span className='info'>{userInfo.followers?.length || 0}</span>
                     </div>
-                    <div className='cont-following'>
+                    <div className='cont-following' onClick={() => handleFindUsers(userInfo.following, "following")}>
                         <span className='name-info'>Following</span>
                         <span className='info'>{userInfo.following?.length || 0}</span>
                     </div>

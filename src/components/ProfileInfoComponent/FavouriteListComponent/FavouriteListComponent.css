@@ -6,5 +6,5 @@
 .favourite-list-component .sentence-list{
     align-self: center;
     width: fit-content;
-    color: black;
+    color: var(--primary-color);
 }
