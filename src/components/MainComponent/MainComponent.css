@@ -2,62 +2,47 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   position: relative;
 }
 
-.main-component .cnt-img-spans {
-  width: 80%;
-  height: 100%;
+.main-component .cnt-img-sliders {
+  width: 75vw;
+  height: 100vh;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: -7rem;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Contenedor para las imágenes en carrusel */
-.cnt-images {
+.cnt-slider {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width:40rem;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
+  animation: scroll 20s linear infinite; 
 }
 
-.cnt-images img {
+.slide {
   width: 100%;
-  height: auto;
+  height: 50vh; 
+}
+
+.cnt-slider .slide img {
+  width: 40vw;
+  height: 95%;
+  border-radius: 5%;
   object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 6px 13px black;
 }
 
-.cnt-images img:hover {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width:40rem;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  transform: scale(1.05);
-}
-
-@keyframes scrollVertical {
+@keyframes scroll {
   0% {
-      transform: translateY(100%);
+    transform: translateY(0);
   }
   100% {
-      transform: translateY(-100%); 
+    transform: translateY(calc(-50vh * 5)); /* Desplaza 5 imágenes hacia arriba */
   }
-}
-
-.cnt-images {
-  animation: scrollVertical 15s linear infinite; /* Ajusta la velocidad aquí */
 }
 .login, .signup {
   background-color: var(--btn-primary-color);

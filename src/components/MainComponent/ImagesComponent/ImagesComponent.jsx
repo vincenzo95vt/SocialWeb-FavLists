@@ -1,26 +1,24 @@
-import React from 'react';
+import React from "react";
 
 const ImagesComponent = () => {
+  const images = [
+    "./image1.jpg",
+    "./image2.jpg",
+    "./image3.jpg",
+    "./image4.jpg",
+    "./image5.jpg",
+  ];
+
+  // Duplicamos las imágenes al menos 2 veces para evitar huecos
+  const duplicatedImages = [...images, ...images, ...images];
+
   return (
-    <div className='cnt-images'>
-      <img src="./image1.jpg" alt="" />
-      <img src="./image2.jpg" alt="" />
-      <img src="./image3.jpg" alt="" />
-      <img src="./image4.jpg" alt="" />
-      <img src="./image5.jpg" alt="" />
-      <img src="./image6.jpg" alt="" />
-      <img src="./image1.jpg" alt="" />
-      <img src="./image2.jpg" alt="" />
-      <img src="./image3.jpg" alt="" />
-      <img src="./image4.jpg" alt="" />
-      <img src="./image5.jpg" alt="" />
-      <img src="./image6.jpg" alt="" />
-      <img src="./image1.jpg" alt="" />
-      <img src="./image2.jpg" alt="" />
-      <img src="./image3.jpg" alt="" />
-      <img src="./image4.jpg" alt="" />
-      <img src="./image5.jpg" alt="" />
-      <img src="./image6.jpg" alt="" />
+    <div className="cnt-slider">
+      {duplicatedImages.map((image, index) => (
+        <div className="slide" key={`image-${index}`}>
+          <img src={image} alt={`Slide ${index}`} />
+        </div>
+      ))}
     </div>
   );
 };

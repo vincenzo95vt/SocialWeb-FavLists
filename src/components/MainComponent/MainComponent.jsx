@@ -9,7 +9,7 @@ const MainComponent = () => {
 
   return (
     <div className='main-component'>
-      <div className='cnt-img-spans'>
+      <div className='cnt-img-sliders'>
         <ImagesComponent/>
         <div>
           <span onClick={() => navigate("/login")} className='login'>Log in</span>
