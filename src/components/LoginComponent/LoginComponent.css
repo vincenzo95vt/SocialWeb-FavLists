@@ -5,13 +5,46 @@
     justify-content: center;
     border-radius: 15px;
     padding: 4rem;
-    background: var(--secondary-color); /* Color cálido y suave */
-    box-shadow: inset 0px 0px 20px rgba(25, 236, 2, 0.3); /* Sombra suave */
+    background: linear-gradient(145deg, #6f6e6d, #201f1f); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 1px 4px rgba(255, 255, 255, 0.1); /* Sombra exterior + luz interior */
     width: 100%;
-    max-width: 400px; /* Ancho máximo para que no ocupe toda la pantalla */
+    max-width: 400px; /* Controla el ancho máximo */
     margin: auto;
-    transition: background 0.3s ease;
-}
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    backdrop-filter: blur(5px); /* Desenfoque suave */
+  }
+  
+  .login-container:hover {
+    transform: translateY(-5px); /* Sutil elevación al pasar el mouse */
+    background: linear-gradient(145deg, #6f6e6d, #7b7a7a); 
+  }
+  
+  .login-container h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .login-container button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: var(--btn-primary-color);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .login-container button:hover {
+    background: var(--btn-primary-color-hover);
+    transform: translateY(-3px);
+  }
+  
 
 .login-container h1 {
     color: var(--primary-color);
