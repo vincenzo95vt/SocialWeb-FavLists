@@ -19,8 +19,8 @@
   --tertiary-color: #f6e9e9;
   --temporary-color: #0d0d0d; 
   --svg-primary-color: #e6e6e6; 
-  --btn-primary-color: #008f11; 
-  --btn-primary-color-hover: #005f08; 
+  --btn-primary-color: #05c71c; 
+  --btn-primary-color-hover: #03850e; 
   --card-primary-color: #262626;
   --following-color: #888686;
   --following-bg-color: #333333;
@@ -30,6 +30,7 @@
   --success-msg-color: #27ae60;
   --error-color: #d32f2f; 
   --signup-h1-color: #e1e1e1;
+  --btn-letter-color: rgb(75, 75, 75);
   --card-primary-color-hover: #3d3d3d; 
   font-family: "Outfit", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

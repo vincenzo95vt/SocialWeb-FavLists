@@ -5,6 +5,7 @@ import { findUserByName } from '../../core/services/userServices/userServices'
 import { showDataUserFound } from './UserFoundAction'
 import { useDispatch } from 'react-redux'
 import { acceptFollowRequest, rejectFollowRequest } from '../../core/services/followRequestServices/followRequestServices'
+import TypeWriterComponent from '../MainComponent/TypeWriterComponent/TypeWriterComponent'
 
 
 const HeaderComponent = ({logoutFunction, followRequests, reloadData}) => {
@@ -66,7 +67,7 @@ const HeaderComponent = ({logoutFunction, followRequests, reloadData}) => {
 
   return (
     <div className='header'>
-      <img src="/file.png" alt="" />
+      <TypeWriterComponent text={"Favlists"}/>
       <input type="text" onChange={(e) => findUser(e)} />
       {
         usersData ? 

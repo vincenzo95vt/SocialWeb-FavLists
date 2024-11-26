@@ -62,6 +62,9 @@ const ProfileInfoComponent = ({ section, path }) => {
     if (!userInfo) {
         return <div><span>No data to show</span></div>;
     }
+
+    console.log("UI",userInfo)
+    console.log("DATAINFO",dataParsed)
     return (
         <div className='profile-user-card'>
             
@@ -75,7 +78,14 @@ const ProfileInfoComponent = ({ section, path }) => {
                     userInfo.privacy === "private" ? (
                         <PrivateProfileComponent isFollowingYou={isFollowingYou} userInfo={userInfo} showListPosts={showListPosts} />
                     ) : (
-                        <PublicProfileComponent isFollowingYou={isFollowingYou} userInfo={userInfo} showListPosts={showListPosts} />
+                        userInfo.userName === dataParsed.userName ?
+                        (
+                            <PublicProfileComponent section={"profile"} path={path} userInfo={userInfo} showListPosts={showListPosts} />
+                        )
+                        :
+                        (
+                            <PublicProfileComponent isFollowingYou={isFollowingYou} userInfo={userInfo} showListPosts={showListPosts} />
+                        )
                     )
                 )
             }
