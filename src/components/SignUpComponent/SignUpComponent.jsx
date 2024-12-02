@@ -10,6 +10,7 @@ const SignUpComponent = () => {
   const [validEmail, setValidEmail] = useState(undefined)
 
   const navigate = useNavigate()
+  const validDomains = ['gmail.com', 'yahoo.com', 'hotmail.com'];
 
   let initialValues = {
     userName: undefined,
@@ -23,7 +24,15 @@ const SignUpComponent = () => {
   }
   let userSchema = object({
     userName: string().required("Username is required").matches(/^\S*$/, 'UserName cannot contain spaces'),
-    email: string().email().required("Email is necessary to log on this website"),
+    email: string().email().test(
+      'is valid domain',
+      `Mail must be one of this domains: ${validDomains.join(', ')}`,
+      (value) => {
+        if (!value) return false;
+        const domain = value.split('@')[1]; 
+        return validDomains.includes(domain);
+      }
+    ).required("Email is necessary to log on this website"),
     name: string().required("Tell us your name"),
     lastName: string().required("Tell us your last name"),
     age: number().required().min(18, "Minimum age must be 18").max(100, "Your age cannot exceed over 100 years"),
@@ -42,7 +51,7 @@ const SignUpComponent = () => {
         ) 
         :
         (
-          validEmail && <div><span>{validEmail.message}</span></div>
+          validEmail && <div className='errorMessage-cnt'><span>{validEmail.message}</span></div>
         )
       }
       <h1>Register</h1>

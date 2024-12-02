@@ -57,6 +57,8 @@ const DateComponent = ({post, fetchData}) => {
 
     const sendPostToList = async (listId, postId) => {
         try {
+            console.log(listId)
+            console.log(postId)
             dispatch(setLoading(true))
             await addPostToUserList(listId, postId)
             await refreshUserData()

@@ -26,6 +26,9 @@
     margin-bottom: 1.5rem;
     text-align: center;
   }
+  .signup-container .errorMessage-cnt{
+    color: var(--error-color)
+  }
   
   .signup-container button {
     padding: 0.8rem 2rem;
@@ -68,9 +71,9 @@
     display: flex;
     width: 100%; 
     padding: 0.5rem 0; 
-    color: var(--primary-color); 
+    color: var(--txt-description-color); 
     &::placeholder{
-        color: var(--txt-description-color);
+        color: var(--cnt-description-color);
     }
     &:focus{
         outline: none;

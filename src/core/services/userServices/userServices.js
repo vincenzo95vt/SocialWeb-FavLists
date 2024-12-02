@@ -166,7 +166,7 @@ export const refreshUserData =  async () => {
                 "Content-Type": "application/json",
                 "auth-token": token
             }
-        }) 
+        })  
         const data = await response.json()
         console.log("hecho", data)
         localStorage.setItem("userData", JSON.stringify(data.data))
