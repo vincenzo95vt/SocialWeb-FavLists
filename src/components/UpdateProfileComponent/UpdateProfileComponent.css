@@ -1,0 +1,84 @@
+.update-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(145deg, #6f6e6d, #201f1f);
+    width: 50rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--temporary-color);
+}
+
+.update-container h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.update-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.update-container label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.update-container .name, 
+.update-container .lastName, 
+.update-container .userName, 
+.update-container .description {
+    width: 90%;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    background-color: var(--card-primary-color);
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.update-container .description {
+    resize: none;
+    height: 6rem;
+}
+
+.update-container .name:focus, 
+.update-container .lastName:focus, 
+.update-container .userName:focus, 
+.update-container .description:focus {
+    border-color: var(--temporary-color);
+    outline: none;
+}
+
+.update-container .count-words-left {
+    font-size: 1rem;
+    color: var(--txt-description-color);
+    margin-top: 0.5rem;
+    text-align: right;
+}
+
+.update-container button {
+    width: fit-content;
+    align-self: center;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--card-primary-color);
+    background-color: var(--btn-primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.update-container button:hover {
+    background-color: var(--btn-primary-color-hover);
+}

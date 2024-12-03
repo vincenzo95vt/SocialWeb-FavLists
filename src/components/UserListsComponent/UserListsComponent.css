@@ -1,0 +1,78 @@
+.userList-card {
+    background-color: var(--card-primary-color);
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    border-radius: 10px;
+    padding: 2%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .userList-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .userList-card h1 {
+    color: var(--txt-primary-color);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .userList-card .cnt-info {
+    display: flex;
+    align-items: center;
+    justify-content: start; 
+    width: 95%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+  }
+  
+  .userList-card .cnt-info:hover {
+    transform: scale(1.03);
+    background-color: var(--following-bg-color);
+  }
+  
+  .userList-card .cnt-info img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 1rem; 
+    transition: transform 0.3s ease;
+  }
+  
+  .userList-card .cnt-info img:hover {
+    transform: scale(1.1);
+  }
+  
+  .userList-card .cnt-info .cnt-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    width: 14rem; 
+  }
+  
+  .userList-card .cnt-info .cnt-name p {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--txt-primary-color);
+    transition: color 0.3s ease;
+  }
+  
+  .userList-card .cnt-info .cnt-name p:hover {
+    color: var(--btn-primary-color);
+  }
+  
+  .userList-card span {
+    color: var(--txt-primary-color);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  

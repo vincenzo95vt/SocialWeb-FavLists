@@ -1,68 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&family=Outfit:wght@100..900&display=swap');
+.outfit-favlist {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.martian-mono{
+  font-family: "Martian Mono", monospace;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --bg-color:#1a1a1d;
+  --primary-color: #a8a7a7; 
+  --txt-primary-color: #858484;
+  --secondary-color: #2e2e2e; 
+  --tertiary-color: #f6e9e9;
+  --temporary-color: #0d0d0d; 
+  --svg-primary-color: #e6e6e6; 
+  --btn-primary-color: #05c71c; 
+  --btn-primary-color-hover: #03850e; 
+  --card-primary-color: #262626;
+  --following-color: #888686;
+  --following-bg-color: #333333;
+  --following-border-cnt-color: #606060;
+  --cnt-description-color: #a0a0a0;
+  --txt-description-color: #e0e0e0;
+  --success-msg-color: #27ae60;
+  --error-color: #d32f2f; 
+  --signup-h1-color: #e1e1e1;
+  --btn-letter-color: rgb(75, 75, 75);
+  --card-primary-color-hover: #3d3d3d; 
+  font-family: "Outfit", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  background-color: var(--temporary-color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 body {
   margin: 0;
   display: flex;
   place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(135deg, var(--secondary-color), var(--bg-color)); 
+   background-attachment: fixed; 
+  background-size: cover;
+  z-index: -1;
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--btn-primary-color);
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

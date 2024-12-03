@@ -1,0 +1,117 @@
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-between; 
+    border-radius: 15px;
+    padding: 4rem;
+    background: linear-gradient(145deg, #6f6e6d, #201f1f); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 1px 4px rgba(255, 255, 255, 0.1); 
+    width: 100%;
+    max-width: 400px; 
+    margin: auto;
+    transition: transform 0.3s ease, background 0.5s ease-in-out;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+  }
+  
+  .signup-container:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(145deg, #6f6e6d, #414141); 
+  }
+  
+  .signup-container h1 {
+    font-size: 2rem;
+    color: var(--signup-h1-color, #fff); 
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .signup-container .errorMessage-cnt{
+    color: var(--error-color)
+  }
+  
+  .signup-container button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: var(--btn-primary-color, ); 
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .signup-container button:hover {
+    background: var(--btn-primary-color-hover); 
+    transform: translateY(-3px); 
+  }
+  
+.form-container {
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-between;
+    align-content: space-between;
+    width: 20rem;
+    height: auto; 
+    gap: 10px;
+}
+
+.container-info {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 1rem; 
+}
+
+.input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--cnt-description-color); 
+    display: flex;
+    width: 100%; 
+    padding: 0.5rem 0; 
+    color: var(--txt-description-color); 
+    &::placeholder{
+        color: var(--cnt-description-color);
+    }
+    &:focus{
+        outline: none;
+    }
+}
+
+.container-error {
+    color: var(--error-color); 
+    font-size: 0.8rem; 
+    margin-top: 0.5rem; 
+}
+
+.select {
+    padding: 0.5rem; 
+    border: 1px solid var(--following-bg-color); 
+    border-radius: 5px; 
+    width: 100%; 
+    background: transparent; 
+    color: var(--primary-color); 
+}
+
+.select option {
+    background: transparent; 
+    color: var(--primary-color); 
+}
+
+.success-message {
+    color: var(--success-msg-color); 
+    align-self: center;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.phrase{
+    color: white;
+}
+.login-btn {
+    color: var(--primary-color); 
+    cursor: pointer;
+    font-weight: bold;
+}

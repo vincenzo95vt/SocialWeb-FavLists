@@ -1,0 +1,221 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 5rem;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: linear-gradient(145deg, #6f6e6d, #201f1f);
+    box-shadow: 1px 1px 23px black;
+    z-index: 11;
+}
+
+.header img{
+    width: 4rem;
+    height: 4rem;
+    align-self: center;
+    padding: 1%;
+    filter: drop-shadow(2px 2px 2px black); 
+}
+
+.header input {
+    height: 1rem; 
+    padding: 0.5rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    align-self: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1); 
+    color: white; 
+    font-family: "Martian Mono", monospace; 
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 1px 4px rgba(255, 255, 255, 0.1); 
+    outline: none; 
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .header input:focus {
+    border-color: #19ec02; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), inset 0 1px 6px rgba(25, 236, 2, 0.3);
+    background: rgba(255, 255, 255, 0.2); 
+  }
+  
+  .header input::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Color del texto del placeholder */
+    font-style: italic;
+  }
+  
+.header .container-opt{
+    display: flex;
+    width: 15rem;
+    height: fit-content;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    svg{
+        fill: var(--primary-color);
+        width: 2rem;
+        height: auto;
+        cursor: pointer;        
+    }
+}
+.header .container-find-users{
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px black;
+    position: absolute;
+    width: 15rem;
+    background-color: var(--card-primary-color);
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-67%);
+    span{
+        padding: 0.35rem;
+        color: var(--primary-color);
+    }
+}
+
+.header .container-find-users .container-user-found{
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease;
+    img{
+        width: 2.5rem;
+        height: auto;
+    }
+    &:hover{
+        cursor: pointer;
+        background-color: var(--card-primary-color-hover);
+    }
+}
+
+.header .error{
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px black;
+    position: absolute;
+    width: 15rem;
+    background-color: var(--card-primary-color);
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-67%);
+    span{
+        padding: 0.35rem;
+        color: red;
+    }
+}
+
+.profile-opt {
+    position: absolute; 
+    top: 11.4vh; 
+    right: -13.75vw; 
+    background-color: var(--card-primary-color); 
+    border: 1px solid var(--card-primary-color-hover); 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 10px; 
+    z-index: 1000; 
+    width: 200px; 
+    transition: right 0.5s ease; 
+}
+
+.profile-opt.show {
+    right: 1.25vw; 
+}
+
+.profile-opt.hidden {
+    right: -13.75vw; 
+}
+
+.profile-opt ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.profile-opt li {
+    padding: 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    border-radius: 5px;
+    color: var(--primary-color);
+}
+
+.profile-opt li:hover {
+    background-color: #f0f0f0; 
+}
+
+.notifications-container{
+    position: absolute;
+    background: var(--card-primary-color);
+    top: 11.4vh; 
+    right: -17.75vw; 
+    border: 1px solid var(--card-primary-color-hover); 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px var(--primary-color); 
+    padding: 0.5rem;
+    transition: right 0.5s ease;
+    z-index: 9;
+    span{
+        color: var(--primary-color);
+    }
+}
+
+.notifications-container.show{
+    opacity: 1;
+    right: 6.25vw; 
+    z-index: 9;
+
+}
+
+.notifications-container.hidden{
+    right: -30.75vw; 
+}
+.notifications-container .requester-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 23vw;
+    img{
+        width: 3.5rem;
+        height: auto;
+    }
+}
+.notifications-container .requester-info .name-and-action{
+    display: flex;
+    width: 12vw;
+    flex-direction: column;
+    .name{
+        font-weight: bold;
+        font-size: 1.25rem;
+        color: var(--primary-color);
+    }
+    span{
+        font-weight: normal;
+        font-style: oblique;
+        color: var(--following-bg-color);
+        font-size: 1rem;
+    }
+}
+.notifications-container .requester-info .buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 8vh;
+}
+
+.app-title{
+    font-family: "Martian Mono", monospace;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: white;
+    display: inline-block;
+    overflow: hidden;
+    border-right: 2px solid rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    animation: blink 1.5s step-end infinite;
+    margin-left: 1rem;
+}

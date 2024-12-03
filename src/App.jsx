@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+  import { BrowserRouter, Route, Routes } from 'react-router-dom'
+  import './App.css'
+  import MainComponent from './components/MainComponent/MainComponent'
+  import LoginComponent from './components/LoginComponent/LoginComponent'
+  import SignUpComponent from './components/SignUpComponent/SignUpComponent'
+  import { Provider } from 'react-redux'
+  import store from "./core/redux/store/store"
+  import IndexComponent from './components/IndexComponent/IndexComponent'
 
-function App() {
-  const [count, setCount] = useState(0)
+  function App() {
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    return (
+      <>
+        <Provider store={store}>
+          <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<MainComponent/>} />
+                <Route path="/login" element={<LoginComponent />} />
+                <Route path="/signup" element={<SignUpComponent />} />
+                <Route path='/index' element={<IndexComponent section={"index"} />} />
+                <Route path='/index/user/:id' element={<IndexComponent section={"index"} path={"user"}/>}/>
+                <Route path='/profile' element={<IndexComponent section={"profile"} path={undefined}/>}/>
+                <Route path='/profile/favouriteList/:id' element={<IndexComponent section={"profile"} path={"favouriteLists"}/>}/>
+                <Route path='/profile/update-prof/:id' element={<IndexComponent section={"profile"} path={"update-prof"}/>}/>
+                <Route path='/profile/following' element={<IndexComponent section={"profile"} path={"following"}/>}/>
+                <Route path='/profile/followers' element={<IndexComponent section={"profile"} path={"followers"}/>}/>
+                <Route path='/profile/post/:id' element={<IndexComponent section={"profile"} path={"post"}/>}/>
+              </Routes>
+            </BrowserRouter>
+        </Provider>
+      </>
+    )
+  }
 
-export default App
+  export default App

@@ -1,0 +1,241 @@
+.profile-user-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 75rem;
+    background: linear-gradient(145deg, #6f6e6d, #201f1f);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: var(--secondary-color);
+    top: -4rem;
+}
+
+.profile-user-card .imgprofile-names-info {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.profile-user-card .imgprofile-names-info img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-user-card .name-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-user-card .name-info .name-last-name span {
+    font-size: 1.85rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.profile-user-card .userName {
+    font-size: 1.25rem;
+    color: var(--cnt-description-color);
+    margin-top: 0.5rem;
+}
+
+.profile-user-card .follows-container {
+    display: flex;
+    justify-content: space-around;
+    width: 30rem;
+    align-items: center;
+    margin: 0 2rem;
+}
+
+.follows-container .cont-followers, .follows-container .cont-following {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.follows-container .cont-followers:hover, .follows-container .cont-following:hover {
+    color: var(--btn-primary-color);
+}
+
+.profile-user-card .container-description {
+    background-color: var(--cnt-description-color);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.profile-user-card .myLists-container {
+    margin-top: 1.5rem;
+    display: flex;
+    width: 50%; 
+    justify-content: space-between;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    background-color: var(--card-primary-color);
+    padding: 1rem 2rem; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out; 
+}
+
+.profile-user-card .myLists-container:hover {
+    box-shadow: 0 16px 12px var(--bg-color); 
+}
+
+.profile-user-card .myLists-container .list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.profile-user-card .myLists-container .list-item:hover {
+    background-color: var(--primary-color); 
+    color: var(--card-primary-color); 
+    transform: scale(1.05);
+}
+
+.profile-user-card .myLists-container .list-item + .list-item {
+    margin-left: 1rem; 
+}
+.profile-user-card .list-to-show {
+    display: flex;
+    height: 3rem;
+    width: fit-content;
+    margin: 1rem;
+    gap: 1rem;
+    justify-content: flex-start;
+    transition: height 0.5s ease;
+}
+
+.profile-user-card .list-to-show.hidden {
+    height: 0;
+    overflow: hidden;
+}
+
+.profile-user-card .list-to-show.flex {
+    height: 5rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile-user-card .list-to-show .container-name-list {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    height: fit-content;
+    border-radius: 4px;
+    transition: font-size 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.profile-user-card .list-to-show .container-name-list:hover {
+    font-size: 1.50rem;
+}
+
+.container-edit-prof {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.container-edit-prof:hover {
+    transform: scale(1.1);
+}
+
+.container-btn-follow .btn-follow {
+    width: 8rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 6px;
+    background-color: var(--btn-primary-color);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.container-btn-follow .btn-follow:hover {
+    background-color: var(--btn-primary-color-hover);
+}
+
+.container-btn-follow .is-following-cnt {
+    border-radius: 4px;
+    border: 1px solid var(--following-border-cnt-color);
+    padding: 0.25rem;
+    height: 1rem;
+    color: var(--primary-color);
+}
+
+.user-posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px; /* Espacio entre las publicaciones */
+    padding: 16px;
+}
+
+.post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.post-container span {
+    margin-top: 8px;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+}
+
+.private-zone{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 1vw;
+    height: 40vh;
+    svg{
+        fill: var(--txt-primary-color);
+        height: 25vh;
+    }
+    span{
+        font-size: 1.5rem;
+        width: 12vw;
+        color: var(--txt-primary-color);
+    }
+}
