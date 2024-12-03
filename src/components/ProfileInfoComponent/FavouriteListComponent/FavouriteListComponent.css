@@ -1,0 +1,10 @@
+.favourite-list-component{
+    display: flex;
+    flex-direction: column
+}
+
+.favourite-list-component .sentence-list{
+    align-self: center;
+    width: fit-content;
+    color: var(--primary-color);
+}
