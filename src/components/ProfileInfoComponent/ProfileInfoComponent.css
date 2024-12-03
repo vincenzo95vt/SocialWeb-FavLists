@@ -220,3 +220,22 @@
     text-align: center;
     color: #333;
 }
+
+.private-zone{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 1vw;
+    height: 40vh;
+    svg{
+        fill: var(--txt-primary-color);
+        height: 25vh;
+    }
+    span{
+        font-size: 1.5rem;
+        width: 12vw;
+        color: var(--txt-primary-color);
+    }
+}
