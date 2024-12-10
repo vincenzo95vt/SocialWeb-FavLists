@@ -12,7 +12,7 @@
     return (
       <>
         <Provider store={store}>
-          <BrowserRouter>
+          <BrowserRouter basename="/SocialWeb-FavLists">
               <Routes>
                 <Route path="/" element={<MainComponent/>} />
                 <Route path="/login" element={<LoginComponent />} />
