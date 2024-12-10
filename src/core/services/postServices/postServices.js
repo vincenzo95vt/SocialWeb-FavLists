@@ -6,7 +6,7 @@ export const getDataFromBack = async () => {
         if(!token) {
             throw new Error("Token not found")
         }
-        const url = `http://localhost:4400/posts/`
+        const url = `https://favlists-337f03969760.herokuapp.com/posts/`
         let response = await fetch(url, {
             method: "GET",
             headers: {
@@ -43,7 +43,7 @@ export const getDataFromBack = async () => {
 
 export const sendComment = async (comment, idPost) => {
     try {
-        const url = `http://localhost:4400/posts/addNewComment/${idPost}`;
+        const url = `https://favlists-337f03969760.herokuapp.com/posts/addNewComment/${idPost}`;
         let token = localStorage.getItem("token");
 
         let response = await fetch(url, {
@@ -93,7 +93,7 @@ export const sendComment = async (comment, idPost) => {
 export const getPostsLists  = async (postId) => {
     try {
         const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/posts/${postId}`
+        const url = `https://favlists-337f03969760.herokuapp.com/posts/${postId}`
         const response = await fetch(url, {
             method:"GET",
             headers: {
@@ -118,7 +118,7 @@ export const getPostsLists  = async (postId) => {
 export const deletePost = async (postId) => {
     try {
         const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/posts/${postId}`
+        const url = `https://favlists-337f03969760.herokuapp.com/posts/${postId}`
         const response = await fetch(url, {
             method: "DELETE",
             headers: {

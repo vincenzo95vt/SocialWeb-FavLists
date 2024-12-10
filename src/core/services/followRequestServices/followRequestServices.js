@@ -2,7 +2,7 @@ export const followUser = async (userId) => {
     try {
         console.log(userId)
         const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/users/followUser/${userId}`
+        const url = `https://favlists-337f03969760.herokuapp.com/users/followUser/${userId}`
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -30,7 +30,7 @@ export const followUser = async (userId) => {
 export const requestFollowUser = async (userId) => {
     try {
         const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/followRequests/${userId}`
+        const url = `https://favlists-337f03969760.herokuapp.com/followRequests/${userId}`
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -56,7 +56,7 @@ export const requestFollowUser = async (userId) => {
 export const showFollowRequests = async () => {
     try {
        const token = localStorage.getItem("token")
-       const url = `http://localhost:4400/followRequests/`
+       const url = `https://favlists-337f03969760.herokuapp.com/followRequests/`
        const response = await fetch(url,{
         method: "GET",
         headers: {
@@ -80,7 +80,7 @@ export const showFollowRequests = async () => {
 export const acceptFollowRequest = async(id) => {
     try {   
         const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/followRequests/${id}/accept`
+        const url = `https://favlists-337f03969760.herokuapp.com/followRequests/${id}/accept`
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -104,7 +104,7 @@ export const acceptFollowRequest = async(id) => {
 export const rejectFollowRequest = async (id) => {
     try {   
         const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/followRequests/${id}/reject`
+        const url = `https://favlists-337f03969760.herokuapp.com/followRequests/${id}/reject`
         const response = await fetch(url, {
             method: "POST",
             headers: {

@@ -12,7 +12,7 @@ export const signUpUser = async (values) => {
             genre: values.genre
         }
         console.log(bodyValues)
-        const url = `http://localhost:4400/users/signup`
+        const url = `https://favlists-337f03969760.herokuapp.com/users/signup`
         const response = await fetch(url, {
         method:"POST",
         headers:{"Content-type":"application/json"},
@@ -32,7 +32,7 @@ export const loginUser = async (values) => {
             email: values.email,
             password: values.password,
         }
-        const url = `http://localhost:4400/users/login`
+        const url = `https://favlists-337f03969760.herokuapp.com/users/login`
         const response = await fetch(url, {
         method:"POST",
         headers:{"Content-type":"application/json"},
@@ -63,7 +63,7 @@ export const refreshToken = async () => {
             throw new Error("No refresh token available");
 
         }
-        const url = `http://localhost:4400/users/refreshToken`
+        const url = `https://favlists-337f03969760.herokuapp.com/users/refreshToken`
         const response = await fetch(url, {
             method:"POST",
             headers:{"Content-type":"application/json",
@@ -88,7 +88,7 @@ export const refreshToken = async () => {
 export const  addPostToUserList = async (listId, postId) => {
     try {
         const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/users/addPostToList/${listId}`
+        const url = `https://favlists-337f03969760.herokuapp.com/users/addPostToList/${listId}`
         const response = await fetch(url, {
             method: "PATCH",
             headers: {
@@ -117,7 +117,7 @@ export const createNewList = async (value, postId) => {
             postId: postId
         }
         console.log(bodyValues)
-        const url = "http://localhost:4400/users/addNewList"
+        const url = "https://favlists-337f03969760.herokuapp.com/users/addNewList"
         let response = await fetch(url, {
             method: "PATCH",
             headers: {
@@ -159,7 +159,7 @@ export const createNewList = async (value, postId) => {
 export const refreshUserData =  async () => {
     try {
         const token = localStorage.getItem("token")
-        const url = "http://localhost:4400/users/refreshUserData"
+        const url = "https://favlists-337f03969760.herokuapp.com/users/refreshUserData"
         const response = await fetch(url, {
             method: "GET",
             headers: {
@@ -178,7 +178,7 @@ export const refreshUserData =  async () => {
 export const findUserByName = async (name) => {
     try {
         const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/users/findUserByName/${name}`
+        const url = `https://favlists-337f03969760.herokuapp.com/users/findUserByName/${name}`
         const response = await fetch(url, {
             method: "GET",
             headers: {
@@ -203,7 +203,7 @@ export const findUserByName = async (name) => {
 export const updateUserData = async (values) => {
     try {
         const token = localStorage.getItem("token");
-        const url = `http://localhost:4400/users/`
+        const url = `https://favlists-337f03969760.herokuapp.com/users/`
         const response = await fetch(url, {
             method: "PATCH",
             headers: {
@@ -228,7 +228,7 @@ export const updateUserData = async (values) => {
 export const findUserById = async (id) => {
     try {
         const token = localStorage.getItem("token")
-        const url = `http://localhost:4400/users/${id}`
+        const url = `https://favlists-337f03969760.herokuapp.com/users/${id}`
         const response = await fetch(url, {
             method: "GET",
             headers: {
